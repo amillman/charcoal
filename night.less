@@ -24,12 +24,12 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._2jnv, ._2jnx, ._2jnz, ._2jnx ._30e7 ._5j5f,
 ._1ht3 ._1htf, ._5i_d .__6k, ._hh7, ._2c9i ._19jt,
 ._4ng2, ._374c, ._5i_d .__6l, ._aou, ._koh li,
-._2i-c ._54nf ._54nh, ._3q34, ._3z53, {
+._2i-c ._54nf ._54nh, ._3q34, {
   color: @primary-text;
 }
 
 // specific overrides
-._koh li:not(.selected) {
+._koh li:not(.selected), ._39r6, ._3z53, {
   color: @primary-text!important;
 }
 
@@ -38,12 +38,13 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._2v6o, ._5eu7, ._6krh, ._67tw, ._5i_d .__6m,
 ._497p, ._5rh4, ._5qsj, ._5iwm, ._4k7a, ._225b,
 ._4g0h, ._3xcx, ._2f5n ._29ey, ._2y8z, ._7s4d,
-._3q35, ._7s4e, ._50cx {
+._3q35, ._7s4e, ._50cx, {
   color: @secondary-text;
 }
 
 // specific overrides
-._58al::placeholder {
+._58al::placeholder, ._39r7, ._51l0 ._1-sv,
+._51l0 ._1-sy ._1-sz::before, ._51l0 ._ipw._1c9h ._1-sz::before {
   color: @secondary-text!important;
 }
 
@@ -66,7 +67,7 @@ a {
 
 // main background
 body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
-._2f5n,{
+._2f5n, html ._55r1 {
   background-color: @screen-background!important;
 }
 
@@ -79,7 +80,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
-._558b ._54ng, ._2y8_, ._49no, ._53ij {
+._558b ._54ng, ._2y8_, ._49no, ._53ij, ._51l0 ._2z8r {
   background-color: @dropdown-background!important;
 }
 
@@ -115,7 +116,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._2c9i ._4ebz, ._374b, ._4_j5, ._33p7, ._558b ._54ng,
 ._koh, ._2f5n, ._2i-c ._54nf ._54ak, ._4jgt, ._2y8y,
 ._5r8e, ._37wv, ._37wu, ._5r86, ._1pka ._49no, ._1pka ._2abm,
-._1pka ._5exl {
+._1pka ._5exl, ._49no, ._2abm, ._5exl, ._4uvi, html ._55r1 {
   border-color: @secondary-border!important;
 }
 
@@ -125,10 +126,14 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 /* -------------- HIGHLIGHTS/ HOVER -------------- */
 
-._5r8a._5r8b, ._5r8h:hover, ._1uwz,
-// unread message
-._1ht3._1ht1 {
+._5r8a._5r8b, ._5r8h:hover, ._1uwz, {
   background-color: @highlighted!important;
+}
+
+@media(max-width: 700px) {
+  ._1ht3._1ht1 {
+    background-color: @highlighted!important;
+  }
 }
 
 ._1ht1:hover, ._1ht1._1ht2 {
@@ -138,7 +143,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 /* -------------- IMAGE COLORS -------------- */
 
 // generic
-._23ct {
+._23ct, .sp_DRWiQpFHw7f_2x.sx_d9163c, .sp_DRWiQpFHw7f_2x.sx_10c893 {
   filter: invert(100%);
 }
 
