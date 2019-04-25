@@ -1,6 +1,175 @@
 @screen-background:             #131313;
+@dropdown-background:           lighten(@screen-background, 5%);
+@reactions-background:          lighten(@screen-background, 25%);
+
+@primary-text:                  #dddddd;
+@secondary-text:                darken(@primary-text, 35%);
+@link-text:                     lighten(#0084ff, 20%);
+
+@highlighted:                   rgba(255, 255, 255, 0.1);
+@hover:                         rgba(255, 255, 255, 0.04);
 
 
-._4sp8 {
-  background-color: @screen-background;
+@primary-border:                rgba(255, 255, 255, 0.2);
+@secondary-border:              rgba(255, 255, 255, 0.1);
+
+@light-shadow:                  0 1px 10px rgba(255, 255, 255, 0.10);
+@bordered-shadow:               0 0 0 1px @secondary-border, @light-shadow;
+
+/* -------------- TEXT COLORS -------------- */
+
+// primary text labels
+body, h1, h2, h3, h4, h5, h6, input, select, textarea,
+._1ht6, ._3szq, ._364g, ._17w2, ._4rph ._4rpj,
+._2jnv, ._2jnx, ._2jnz, ._2jnx ._30e7 ._5j5f,
+._1ht3 ._1htf, ._5i_d .__6k, ._hh7, ._2c9i ._19jt,
+._4ng2, ._374c, ._5i_d .__6l, ._aou, ._koh li,
+._2i-c ._54nf ._54nh, ._3q34, ._3z53, {
+  color: @primary-text;
+}
+
+// specific overrides
+._koh li:not(.selected) {
+  color: @primary-text!important;
+}
+
+// secondary text labels
+._1lj0, ._1ht7, ._1htf, ._ih3, ._3eus, ._5uh,
+._2v6o, ._5eu7, ._6krh, ._67tw, ._5i_d .__6m,
+._497p, ._5rh4, ._5qsj, ._5iwm, ._4k7a, ._225b,
+._4g0h, ._3xcx, ._2f5n ._29ey, ._2y8z, ._7s4d,
+._3q35, ._7s4e, ._50cx {
+  color: @secondary-text;
+}
+
+// specific overrides
+._58al::placeholder {
+  color: @secondary-text!important;
+}
+
+// link
+a {
+  color: @link-text;
+}
+
+// message by me
+._nd_ ._hh7 {
+  color: @screen-background;
+}
+
+// message by me checkmark
+._3i_m ._9ah ._57e_ {
+  color: @screen-background;
+}
+
+/* -------------- BACKGROUND COLORS -------------- */
+
+// main background
+body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
+._2f5n,{
+  background-color: @screen-background!important;
+}
+
+// message by someone
+._hh7 {
+  background-color: lighten(@screen-background, 7%);
+
+  &:active {
+    background-color: lighten(@screen-background, 10%);
+  }
+}
+
+._558b ._54ng, ._2y8_, ._49no, ._53ij {
+  background-color: @dropdown-background!important;
+}
+
+// modal overlay
+._4-hy ._3ixn {
+  background-color: rgba(83, 83, 83, 0.4);
+}
+
+// search input
+._5iwm ._58al, ._2pgc {
+  background-color: rgba(255, 255, 255, 0.05)!important;
+}
+
+._aou, ._4kf5, ._3s-4,
+// reaction-specific dropdown
+._4owc ._53ij,
+._5r8a._5r8b, {
+  background-color: @reactions-background!important;
+}
+
+// sectioned header
+._225b {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* -------------- BORDER COLORS -------------- */
+
+._1t2u, ._2y8_ {
+  border-color: @primary-border!important;
+}
+
+._5i_d, ._4rv3, ._1li-, ._673w, ._4p9w ._36ic, ._36ic,
+._2c9i ._4ebz, ._374b, ._4_j5, ._33p7, ._558b ._54ng,
+._koh, ._2f5n, ._2i-c ._54nf ._54ak, ._4jgt, ._2y8y,
+._5r8e, ._37wv, ._37wu, ._5r86, ._1pka ._49no, ._1pka ._2abm,
+._1pka ._5exl {
+  border-color: @secondary-border!important;
+}
+
+._eb3::before {
+  background-color: @secondary-border!important;
+}
+
+/* -------------- HIGHLIGHTS/ HOVER -------------- */
+
+._5r8a._5r8b, ._5r8h:hover, ._1uwz,
+// unread message
+._1ht3._1ht1 {
+  background-color: @highlighted!important;
+}
+
+._1ht1:hover, ._1ht1._1ht2 {
+  background-color: @hover!important;
+}
+
+/* -------------- IMAGE COLORS -------------- */
+
+// generic
+._23ct {
+  filter: invert(100%);
+}
+
+// dropdown caret
+._53il ._558b+._53io, ._1r_9 ._53ik ._53io {
+  filter: invert(88%);
+}
+
+// chat bar icons
+._4rv6, a._4ce_, ._4rv3 ._4rv4 ._5vn8, ._4rv3 ._yht,
+._4rv3 ._5s2p, ._4rv7, ._25pc, ._4rv5, ._4rv9[disabled] {
+  filter: invert(100%);
+}
+
+// message action (remove, delete) dropdown
+._hw2 ._53io {
+  filter: invert(13%);
+}
+
+/* -------------- SHADOWS / GRADIENTS -------------- */
+
+._1r_9 ._53ij {
+  box-shadow: @bordered-shadow!important;
+}
+
+._3mts .uiScrollableArea.contentAfter:after,
+._5r8l .uiScrollableArea.contentAfter:after {
+  background: linear-gradient(rgba(0,0,0,0), @dropdown-background)!important;
+}
+
+/* -------------- MISC. -------------- */
+._2pgc {
+  border: none!important;
 }
