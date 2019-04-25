@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Messenger Night",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["*://*.messenger.com/*"],
+      "css": ["night.css"],
+      "js": ["init.js"]
+    }
+  ],
+  "web_accessible_resources": ["night.css"]
+}
