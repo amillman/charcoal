@@ -40,7 +40,8 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._497p, ._5rh4, ._5qsj, ._5iwm, ._4k7a, ._225b,
 ._4g0h, ._3xcx, ._2f5n ._29ey, ._2y8z, ._7s4d,
 ._3q35, ._7s4e, ._50cx, ._3cnl, ._3cnn a, ._3cnj, ._6cs7,
-._1n-e {
+._1n-e, ._29_7 ._6e6n ._pye, ._1nc7 ._6e6n ._pye,
+._1nc7 ._pye, ._1nc6 ._pye, ._hh7 ._pye, {
   color: @secondary-text;
 }
 
@@ -61,6 +62,11 @@ a {
   color: @screen-background;
 }
 
+// original message in reply by me
+._1nc6 ._pye, ._nd_ ._hh7:active ._pye, ._nd_._-5k ._hh7 ._pye, ._nd_ ._hh7 ._pye {
+  color: lighten(@screen-background, 20%);
+}
+
 // message by me checkmark
 ._3i_m ._9ah ._57e_ {
   color: @screen-background;
@@ -75,17 +81,26 @@ a {
 
 // main background
 body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
-._2f5n, html ._55r1, ._30h0, ._682j, ._3u69 {
+._2f5n, html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, {
   background-color: @screen-background!important;
 }
 
 // message by someone
-._hh7 {
+._hh7, ._29_7 ._3058._s1-._6e6n, {
   background-color: lighten(@screen-background, 7%);
+
+  &:hover {
+    background-color: lighten(@screen-background, 7%);
+  }
 
   &:active {
     background-color: lighten(@screen-background, 10%);
   }
+}
+
+// override hovers on my replies if no theme set
+._nd_ ._3058._s1-._4k7c:hover, ._3erg ._4k7c:hover {
+  background-color: lighten(@screen-background, 7%);
 }
 
 ._558b ._54ng, ._2y8_, ._49no, ._53ij, ._51l0 ._2z8r,
@@ -103,8 +118,8 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   background-color: rgba(255, 255, 255, 0.05)!important;
 }
 
-._aou, ._4kf5, ._3s-4,
-// reaction-specific dropdown
+._aou, ._4kf5,
+// reaction-specific dropdown for choosing a reaction
 ._4owc ._53ij,
 ._5r8a._5r8b, {
   background-color: @reactions-background!important;
@@ -199,7 +214,8 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 }
 
 /* -------------- MISC. -------------- */
-._2pgc, ._558b ._54nc, {
+._2pgc, ._558b ._54nc, ._29_7 ._3058._s1-._6e6n,
+._3erg ._4k7c, ._nd_ ._3058._s1-._4k7c, ._29_7 ._3058._s1-._4k7c {
   border: none!important;
 }
 
