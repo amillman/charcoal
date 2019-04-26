@@ -9,6 +9,7 @@
       "js": ["init.js"]
     }
   ],
+  "permissions": ["storage"],
   "web_accessible_resources": [
     "themes.css",
     "custom.css",
