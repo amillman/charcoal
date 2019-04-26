@@ -1,16 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "Messenger Night",
+  "name": "Charcoal Messenger",
   "version": "0.1",
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
-      "css": ["night.css", "custom.css"],
+      "css": ["themes.css", "custom.css"],
       "js": ["init.js"]
     }
   ],
   "web_accessible_resources": [
-    "night.css",
+    "themes.css",
     "custom.css",
     "charcoal-messenger.svg",
     "facebook-messenger.svg"

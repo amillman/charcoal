@@ -1,8 +1,8 @@
-let css = chrome.extension.getURL("night.css");
+let css = chrome.extension.getURL("themes.css");
 let link = document.createElement('link');
 link.type = 'text/css';
 link.rel = 'stylesheet';
-link.id = "messenger-night";
+link.id = "charcoal-messenger";
 link.href = css;
 document.head.appendChild(link);
 
