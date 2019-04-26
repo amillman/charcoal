@@ -1,12 +1,14 @@
+@messenger-blue:                 #0084ff;
+
 /* -------------- CHARCOAL THEME -------------- */
 
 @screen-background:             #131313;
 @dropdown-background:           lighten(@screen-background, 5%);
 @reactions-background:          lighten(@screen-background, 25%);
 
-@primary-text:                  #dddddd;
+@primary-text:                  #c6c6c6;
 @secondary-text:                darken(@primary-text, 35%);
-@link-text:                     lighten(#0084ff, 20%);
+@link-text:                     lighten(@messenger-blue, 20%);
 
 @highlighted:                   rgba(255, 255, 255, 0.1);
 @hover:                         rgba(255, 255, 255, 0.04);
@@ -42,7 +44,7 @@
 body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._1ht6, ._3szq, ._364g, ._17w2, ._4rph ._4rpj,
 ._2jnv, ._2jnx, ._2jnz, ._2jnx ._30e7 ._5j5f,
-._1ht3 ._1htf, ._5i_d .__6k, ._hh7, ._hh7 a, ._2c9i ._19jt,
+._1ht3 ._1htf, ._5i_d .__6k, ._2c9i ._19jt,
 ._4ng2, ._374c, ._5i_d .__6l, ._aou, ._koh li,
 ._2i-c ._54nf ._54nh, ._3q34, ._3cn0, ._205d ._3cnp,
 ._1n-e._36zg, {
@@ -88,6 +90,20 @@ a {
   }
 }
 
+// undread message timestamp
+._1ht3 ._1ht7 {
+  .charcoal_theme & {
+    color: @messenger-blue;
+  }
+}
+
+// message by someone else
+._hh7, ._hh7 a {
+  .charcoal_theme & {
+    color: #d0d0d0;
+  }
+}
+
 // message by me
 ._nd_ ._hh7, ._nd_ ._hh7 a  {
   .charcoal_theme & {
@@ -98,7 +114,7 @@ a {
 // original message in reply by me
 ._1nc6 ._pye, ._nd_ ._hh7:active ._pye, ._nd_._-5k ._hh7 ._pye, ._nd_ ._hh7 ._pye {
   .charcoal_theme & {
-    color: lighten(@screen-background, 20%);
+    color: lighten(@screen-background, 15%);
   }
 }
 
@@ -109,7 +125,7 @@ a {
   }
 }
 
-// search result highlight
+// search result highlight color in message
  .__in {
   .charcoal_theme & {
     color: black;
