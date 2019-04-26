@@ -5,9 +5,14 @@
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
-      "css": ["night.css"],
+      "css": ["night.css", "custom.css"],
       "js": ["init.js"]
     }
   ],
-  "web_accessible_resources": ["night.css"]
+  "web_accessible_resources": [
+    "night.css",
+    "custom.css",
+    "charcoal-messenger.svg",
+    "facebook-messenger.svg"
+  ]
 }
