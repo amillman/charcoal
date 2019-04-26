@@ -34,7 +34,9 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 // specific overrides
 ._koh li:not(.selected), ._39r6, ._3z53, ._4lhd, ._5jn1, ._3b4u,
 ._1mr_, ._1mq-, ._1jx6, ._5fbv {
-  color: @primary-text!important;
+  .charcoal_theme & {
+    color: @primary-text!important;
+  }
 }
 
 // secondary text labels
@@ -45,39 +47,53 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._3q35, ._7s4e, ._50cx, ._3cnl, ._3cnn a, ._3cnj, ._6cs7,
 ._1n-e, ._29_7 ._6e6n ._pye, ._1nc7 ._6e6n ._pye,
 ._1nc7 ._pye, ._1nc6 ._pye, ._hh7 ._pye, {
-  color: @secondary-text;
+  .charcoal_theme & {
+    color: @secondary-text;
+  }
 }
 
 // specific overrides
 ._58al::placeholder, ._39r7, ._51l0 ._1-sv,
 ._51l0 ._1-sy ._1-sz::before, ._51l0 ._ipw._1c9h ._1-sz::before,
 ._4lh7, ._682i, ._2d0c, ._558b ._54nc {
-  color: @secondary-text!important;
+  .charcoal_theme & {
+    color: @secondary-text!important;
+  }
 }
 
 // link
 a {
-  color: @link-text;
+  .charcoal_theme & {
+    color: @link-text;
+  }
 }
 
 // message by me
 ._nd_ ._hh7, ._nd_ ._hh7 a  {
-  color: @screen-background;
+  .charcoal_theme & {
+    color: @screen-background;
+  }
 }
 
 // original message in reply by me
 ._1nc6 ._pye, ._nd_ ._hh7:active ._pye, ._nd_._-5k ._hh7 ._pye, ._nd_ ._hh7 ._pye {
-  color: lighten(@screen-background, 20%);
+  .charcoal_theme & {
+    color: lighten(@screen-background, 20%);
+  }
 }
 
 // message by me checkmark
 ._3i_m ._9ah ._57e_ {
-  color: @screen-background;
+  .charcoal_theme & {
+    color: @screen-background;
+  }
 }
 
 // search result highlight
  .__in {
-  color: black;
+  .charcoal_theme & {
+    color: black;
+  }
  }
 
 /* -------------- BACKGROUND COLORS -------------- */
@@ -85,58 +101,80 @@ a {
 // main background
 body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._2f5n, html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, {
-  background-color: @screen-background!important;
+  .charcoal_theme & {
+    background-color: @screen-background!important;
+  }
 }
 
 // message by someone
 ._hh7, ._29_7 ._3058._s1-._6e6n, {
-  background-color: lighten(@screen-background, 7%);
-
-  &:hover {
+  .charcoal_theme & {
     background-color: lighten(@screen-background, 7%);
   }
 
+  &:hover {
+    .charcoal_theme & {
+      background-color: lighten(@screen-background, 7%);
+    }
+  }
+
   &:active {
-    background-color: lighten(@screen-background, 10%);
+    .charcoal_theme & {
+      background-color: lighten(@screen-background, 10%);
+    }
   }
 }
 
 // override hovers on my replies if no theme set
 ._nd_ ._3058._s1-._4k7c:hover, ._3erg ._4k7c:hover {
-  background-color: lighten(@screen-background, 7%);
+  .charcoal_theme & {
+    background-color: lighten(@screen-background, 7%);
+  }
 }
 
 ._558b ._54ng, ._2y8_, ._49no, ._53ij, ._51l0 ._2z8r,
 ._4lh2, ._3rh0, ._10sf {
-  background-color: @dropdown-background!important;
+  .charcoal_theme & {
+    background-color: @dropdown-background!important;
+  }
 }
 
 // modal overlay
 ._4-hy ._3ixn {
-  background-color: rgba(83, 83, 83, 0.4);
+  .charcoal_theme & {
+    background-color: rgba(83, 83, 83, 0.4);
+  }
 }
 
 // search input
 ._5iwm ._58al, ._2pgc, ._9fw {
-  background-color: rgba(255, 255, 255, 0.05)!important;
+  .charcoal_theme & {
+    background-color: rgba(255, 255, 255, 0.05)!important;
+  }
 }
 
 ._aou, ._4kf5,
 // reaction-specific dropdown for choosing a reaction
 ._4owc ._53ij,
 ._5r8a._5r8b, {
-  background-color: @reactions-background!important;
+  .charcoal_theme & {
+    background-color: @reactions-background!important;
+  }
 }
 
 // sectioned header
 ._225b {
-  background-color: rgba(255, 255, 255, 0.05);
+  .charcoal_theme & {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 }
 
 /* -------------- BORDER COLORS -------------- */
 
 ._1t2u, ._2y8_ {
-  border-color: @primary-border!important;
+  .charcoal_theme & {
+    border-color: @primary-border!important;
+  }
 }
 
 ._5i_d, ._4rv3, ._1li-, ._673w, ._4p9w ._36ic, ._36ic,
@@ -146,38 +184,53 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._1pka ._5exl, ._49no, ._2abm, ._5exl, ._4uvi, html ._55r1,
 ._4lh2, ._1xd3, ._2d01, ._3cnp, ._10sf, ._1wc4, ._30e7 ._5j5f,
 ._2m5p, ._3b4t, ._4coo, ._1jx4 {
-  border-color: @secondary-border!important;
+  .charcoal_theme & {
+    border-color: @secondary-border!important;
+  }
 }
 
 // match border with screen
 ._4mnq {
-  border-color: @screen-background!important;
+  .charcoal_theme & {
+    border-color: @screen-background!important;
+  }
 }
 
 // match border with dropdown
 ._1mq_ ._4mnq {
-  border-color: @dropdown-background!important;
+  .charcoal_theme & {
+    border-color: @dropdown-background!important;
+  }
 }
 
 // separator in stickers dropdown
 ._eb3::before {
-  background-color: @secondary-border!important;
+  .charcoal_theme & {
+    background-color: @secondary-border!important;
+  }
 }
 
 /* -------------- HIGHLIGHTS/ HOVER -------------- */
 
 ._5r8a._5r8b, ._5r8h:hover, ._1uwz, ._ric, ._4mnq, ._3b4h {
-  background-color: @highlighted!important;
-}
-
-@media(max-width: 700px) {
-  ._1ht3._1ht1 {
+  .charcoal_theme & {
     background-color: @highlighted!important;
   }
 }
 
+// unread conversation row
+@media(max-width: 700px) {
+  ._1ht3._1ht1 {
+    .charcoal_theme & {
+      background-color: @highlighted!important;
+    }
+  }
+}
+
 ._1ht1:hover, ._1ht1._1ht2, ._682j:hover {
-  background-color: @hover!important;
+  .charcoal_theme & {
+    background-color: @hover!important;
+  }
 }
 
 /* -------------- IMAGE COLORS -------------- */
@@ -185,56 +238,76 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 // generic
 ._23ct, .sp_DRWiQpFHw7f_2x.sx_d9163c, .sp_DRWiQpFHw7f_2x.sx_10c893,
 ._2t5t, ._uwb ._uwa {
-  filter: invert(100%);
+  .charcoal_theme & {
+    filter: invert(100%);
+  }
 }
 
 // standard light gray icons
 ._4-0h, ._1lj1, ._50-1._50z-, .sp_DRWiQpFHw7f_2x.sx_d0c224,
 .sp_DRWiQpFHw7f_2x.sx_4ec8db, ._5iwm ._58ak::before {
-  filter: invert(40%);
+  .charcoal_theme & {
+    filter: invert(40%);
+  }
 }
 
 // dropdown caret
 ._53il ._558b+._53io, ._1r_9 ._53ik ._53io, ._53ii ._53ik>._53io,
 ._1tpb ._53im ._53io {
-  filter: invert(88%);
+  .charcoal_theme & {
+    filter: invert(88%);
+  }
 }
 
 // message action icons
 .sp_glY2pvtQtyK_2x.sx_270a0f, .sp_L3WjSPMVfqB_2x.sx_8eaea4,
 .sp_DRWiQpFHw7f_2x.sx_ece9d1, ._2o-b {
-  filter: brightness(45%);
+  .charcoal_theme & {
+    filter: brightness(45%);
+  }
 }
 
 // chat bar icons
 ._4rv6, a._4ce_, ._4rv3 ._4rv4 ._5vn8, ._4rv3 ._yht,
 ._4rv3 ._5s2p, ._4rv7, ._25pc, ._4rv5, ._4rv9[disabled], {
-  filter: invert(100%);
+  .charcoal_theme & {
+    filter: invert(100%);
+  }
 }
 
 // message action (remove, delete message) iOS-style dropdown
 ._hw2 ._53io {
-  filter: invert(13%);
+  .charcoal_theme & {
+    filter: invert(13%);
+  }
 }
 
 /* -------------- SHADOWS / GRADIENTS -------------- */
 
 ._1r_9 ._53ij, ._53ii ._53ij {
-  box-shadow: @bordered-shadow!important;
+  .charcoal_theme & {
+    box-shadow: @bordered-shadow!important;
+  }
 }
 
 ._3mts .uiScrollableArea.contentAfter:after,
 ._5r8l .uiScrollableArea.contentAfter:after {
-  background: linear-gradient(rgba(0,0,0,0), @dropdown-background)!important;
+  .charcoal_theme & {
+    background: linear-gradient(rgba(0,0,0,0), @dropdown-background)!important;
+  }
 }
 
 /* -------------- MISC. -------------- */
 ._2pgc, ._558b ._54nc, ._29_7 ._3058._s1-._6e6n,
 ._3erg ._4k7c, ._nd_ ._3058._s1-._4k7c, ._29_7 ._3058._s1-._4k7c {
-  border: none!important;
+  .charcoal_theme & {
+    border: none!important;
+  }
 }
 
 // bold undread timestamp
 ._1ht3 ._1ht7 {
-  font-weight: bold;
+  .charcoal_theme & {
+    font-weight: bold;
+  }
 }
