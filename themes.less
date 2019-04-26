@@ -6,7 +6,7 @@
 @dropdown-background:           lighten(@screen-background, 5%);
 @reactions-background:          lighten(@screen-background, 25%);
 
-@primary-text:                  #c6c6c6;
+@primary-text:                  #c0c0c0;
 @secondary-text:                darken(@primary-text, 35%);
 @link-text:                     lighten(@messenger-blue, 20%);
 
@@ -100,14 +100,15 @@ a {
 // message by someone else
 ._hh7, ._hh7 a {
   .charcoal_theme & {
-    color: #d0d0d0;
+    color: #cdcdcd;
   }
 }
 
 // message by me
 ._nd_ ._hh7, ._nd_ ._hh7 a  {
   .charcoal_theme & {
-    color: @screen-background;
+    color: fade(black, 70%);
+    -webkit-font-smoothing: auto;
   }
 }
 
