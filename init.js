@@ -24,7 +24,9 @@ chrome.storage.sync.get(MODE_KEY, function(result) {
     window.onload = function() {
         let settingsIcon = document.getElementsByClassName("_4kzu")[0];
         settingsIcon.insertAdjacentHTML("afterend", `
-            <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(mode)}')""></div>
+            <div class="charcoal_toggle_wrapper">
+                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(mode)}')""></div>
+            </div>
         `);
 
         let themeIcon = document.getElementsByClassName("charcoal_toggle")[0];

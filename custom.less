@@ -5,26 +5,45 @@
 // @button-height:                 @slider-height - 2*@button-padding;
 // @slider-translation:            @slider-width - 2*@button-padding - @button-height;
 
-@navbar-height: 50px;
-@toggle-size: 12px;
+@toggle-size: 16px;
 
-.charcoal_toggle {
+.charcoal_toggle_wrapper {
   width: @toggle-size;
   height: @toggle-size;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
   position: fixed;
   top: 7px;
   left: 40px;
 
-  &:hover {
-    cursor: pointer;
+  .charcoal_toggle {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .charcoal_theme & {
+      &:after {
+        content: "";
+        display: block;
+        background-color: white;
+        position: absolute;
+        width: 70%;
+        height: 40%;
+        left: 15%;
+        top: 30%;
+        z-index: -1;
+      }
+    }
   }
 }
 
+
 @media(max-width: 700px) {
-  .charcoal_toggle {
+  .charcoal_toggle_wrapper {
     left: 7px;
   }
 }
