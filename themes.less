@@ -6,9 +6,11 @@
 @dropdown-background:           lighten(@screen-background, 5%);
 @reactions-background:          lighten(@screen-background, 25%);
 
-@primary-text:                  #c0c0c0;
+@primary-text:                  #c9c9c9;
 @secondary-text:                darken(@primary-text, 35%);
 @link-text:                     lighten(@messenger-blue, 20%);
+
+@other-message-text:            #d9d9d9;
 
 @highlighted:                   rgba(255, 255, 255, 0.1);
 @hover:                         rgba(255, 255, 255, 0.04);
@@ -28,6 +30,8 @@
 @m-primary-text:                  #c9c9c9;
 @m-secondary-text:                darken(@m-primary-text, 35%);
 @m-link-text:                     lighten(#0084ff, 5%);
+
+@m-other-message-text:            #bbbbbb;
 
 @m-highlighted:                   rgba(255, 255, 255, 0.15);
 @m-hover:                         rgba(255, 255, 255, 0.07);
@@ -115,10 +119,10 @@ a {
 // message by someone else
 ._hh7, ._hh7 a {
   .charcoal_theme & {
-    color: #cdcdcd;
+    color: @other-message-text;
   }
   .midnight_theme & {
-    color: #bbbbbb;
+    color: @m-other-message-text;
   }
 }
 
