@@ -11,6 +11,7 @@
 @link-text:                     lighten(@messenger-blue, 20%);
 
 @other-message-text:            #d9d9d9;
+@me-message-text:               fade(black, 70%);
 
 @highlighted:                   rgba(255, 255, 255, 0.12);
 @hover:                         rgba(255, 255, 255, 0.05);
@@ -32,6 +33,7 @@
 @m-link-text:                     lighten(#0084ff, 5%);
 
 @m-other-message-text:            #bbbbbb;
+@m-me-message-text:               fade(black, 70%);
 
 @m-highlighted:                   rgba(255, 255, 255, 0.15);
 @m-hover:                         rgba(255, 255, 255, 0.07);
@@ -129,11 +131,11 @@ a {
 // message by me
 ._nd_ ._hh7, ._nd_ ._hh7 a  {
   .charcoal_theme & {
-    color: fade(black, 70%);
+    color: @me-message-text;
     -webkit-font-smoothing: auto;
   }
   .midnight_theme & {
-    color: fade(black, 70%);
+    color: @m-me-message-text;
     -webkit-font-smoothing: auto;
   }
 }
@@ -141,20 +143,20 @@ a {
 // original message in reply by me
 ._1nc6 ._pye, ._nd_ ._hh7:active ._pye, ._nd_._-5k ._hh7 ._pye, ._nd_ ._hh7 ._pye {
   .charcoal_theme & {
-    color: fade(black, 50%);
+    color: lighten(@me-message-text, 20%);
   }
   .midnight_theme & {
-    color: fade(black, 45%);
+    color: lighten(@m-me-message-text, 20%);
   }
 }
 
 // message by me checkmark
 ._3i_m ._9ah ._57e_ {
   .charcoal_theme & {
-    color: @screen-background;
+    color: @me-message-text;
   }
   .charcoal_theme & {
-    color: @m-screen-background;
+    color: @m-me-message-text;
   }
 }
 
