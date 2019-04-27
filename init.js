@@ -1,20 +1,16 @@
-chrome.storage.sync.get(MODE_KEY, function(result) {
-    // Initial theme when users first install.
-    var mode = CHARCOAL_MODE;
-    if (result[MODE_KEY] != null) {
-        mode = result[MODE_KEY];
-    }
+let css = chrome.extension.getURL("stylesheet.css");
+let link = document.createElement('link');
+link.type = 'text/css';
+link.rel = 'stylesheet';
+link.id = "charcoal-messenger";
+link.href = css;
+document.head.appendChild(link);
+
+getStoredMode(function(storedMode) {
+    var mode = storedMode;
 
     console.log(`Loading initial theme ${mode}`);
     document.documentElement.classList.add(themeClassName(mode));
-
-    let css = chrome.extension.getURL("stylesheet.css");
-    let link = document.createElement('link');
-    link.type = 'text/css';
-    link.rel = 'stylesheet';
-    link.id = "charcoal-messenger";
-    link.href = css;
-    document.head.appendChild(link);
 
     window.onload = function() {
         let settingsIcon = document.getElementsByClassName("_4kzu")[0];
@@ -29,11 +25,29 @@ chrome.storage.sync.get(MODE_KEY, function(result) {
             let oldMode = mode;
             mode = toggledMode(mode);
 
-            updateMode(mode, oldMode, function() {
-                document.documentElement.classList.remove(themeClassName(oldMode));
-                document.documentElement.classList.add(themeClassName(mode));
-                themeIcon.setAttribute("style", `background-image:url('${toggleIconURL(mode)}')`);
+            console.log(`Switching theme to ${mode}`);
+            updateStoredMode(mode, function() {
+                updateUIWithMode(mode, oldMode);
             });
+        }
+
+        listenForModeUpdates(function(newMode) {
+            if (newMode == mode) {
+                return;
+            }
+
+            console.log(`Switching theme to ${mode} from external update`);
+
+            updateUIWithMode(newMode, mode);
+            mode = newMode;
+        });
+
+        function updateUIWithMode(mode, oldMode) {
+            document.documentElement.classList.remove(themeClassName(oldMode));
+            document.documentElement.classList.add(themeClassName(mode));
+            themeIcon.setAttribute("style", `background-image:url('${toggleIconURL(mode)}')`);
         }
     }
 })
+
+

@@ -3,9 +3,29 @@ let MODE_KEY = "mode"
 let DEFAULT_MODE = "default"
 let CHARCOAL_MODE = "charcoal"
 
-function updateMode(mode, oldMode, callback) {
-    console.log(`Switching theme from ${oldMode} to ${mode}`);
+function getStoredMode(callback) {
+    chrome.storage.sync.get(MODE_KEY, function(result) {
+        let storedMode = result[MODE_KEY];
+        var mode = CHARCOAL_MODE;
+        if (storedMode != null) {
+            mode = storedMode;
+        }
+
+        callback(mode);
+    });
+}
+
+function updateStoredMode(mode, callback) {
     chrome.storage.sync.set({ [MODE_KEY]: mode }, callback);
+}
+
+function listenForModeUpdates(handler) {
+    chrome.storage.onChanged.addListener(function(changes) {
+        let newMode = changes[MODE_KEY].newValue;
+        if (newMode != null) {
+            handler(newMode);
+        }
+    });
 }
 
 function themeClassName(mode) {
