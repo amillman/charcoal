@@ -1,7 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Charcoal Messenger",
+  "name": "Charcoal: Dark Mode for Messenger",
+  "description": "Unofficial Messenger dark mode. Easily swap between dark and light mode.",
   "version": "0.1",
+  "icons": {
+    "128": "icon@128.png"
+  },
   "browser_action": {
     "default_popup": "settings.html"
   },
