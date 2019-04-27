@@ -13,7 +13,7 @@ chrome.storage.sync.get(MODE_KEY, function(result) {
     console.log(`Loading initial theme ${mode}`);
     document.documentElement.classList.add(themeClassName(mode));
 
-    let css = chrome.extension.getURL("themes.css");
+    let css = chrome.extension.getURL("stylesheet.css");
     let link = document.createElement('link');
     link.type = 'text/css';
     link.rel = 'stylesheet';

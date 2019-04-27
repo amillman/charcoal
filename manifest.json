@@ -5,14 +5,13 @@
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
-      "css": ["themes.css", "custom.css"],
+      "css": ["stylesheet.css"],
       "js": ["init.js"]
     }
   ],
   "permissions": ["storage"],
   "web_accessible_resources": [
-    "themes.css",
-    "custom.css",
+    "stylesheet.css",
     "charcoal-messenger.svg",
     "facebook-messenger.svg"
   ]
