@@ -4,7 +4,7 @@
   "description": "Unofficial Messenger dark mode. Easily swap between dark and light mode.",
   "version": "1.0",
   "icons": {
-    "128": "icon@128.png"
+    "128": "assets/icon@128.png"
   },
   "browser_action": {
     "default_popup": "settings.html"
@@ -12,14 +12,14 @@
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
-      "css": ["stylesheet.css"],
-      "js": ["mode.js", "init.js"]
+      "css": ["styles/stylesheet.css"],
+      "js": ["js/mode.js", "js/init.js"]
     }
   ],
   "permissions": ["storage"],
   "web_accessible_resources": [
-    "stylesheet.css",
-    "charcoal-messenger.svg",
-    "facebook-messenger.svg"
+    "styles/stylesheet.css",
+    "assets/charcoal-messenger.svg",
+    "assets/facebook-messenger.svg"
   ]
 }

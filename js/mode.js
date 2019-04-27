@@ -38,9 +38,9 @@ function themeClassName(mode) {
 
 function toggleIconURL(mode) {
     if (mode == DEFAULT_MODE) {
-        return chrome.extension.getURL("facebook-messenger.svg");
+        return chrome.extension.getURL("assets/facebook-messenger.svg");
     } else if (mode == CHARCOAL_MODE) {
-        return chrome.extension.getURL("charcoal-messenger.svg");
+        return chrome.extension.getURL("assets/charcoal-messenger.svg");
     }
 }
 
