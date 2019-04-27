@@ -1,17 +1,19 @@
 @import (reference) "colors.less";
 
-// @slider-height:                 20px;
-// @slider-width:                  1.6666 * @slider-height;
-// @button-padding:                2px;
+@theme-toggle-size: 16px;
 
-// @button-height:                 @slider-height - 2*@button-padding;
-// @slider-translation:            @slider-width - 2*@button-padding - @button-height;
+@slider-height:                 20px;
+@slider-width:                  1.6666 * @slider-height;
+@button-padding:                2px;
 
-@toggle-size: 16px;
+@button-height:                 @slider-height - 2*@button-padding;
+@slider-translation:            @slider-width - 2*@button-padding - @button-height;
+
+/* -------------- TOGGLE ICON -------------- */
 
 .charcoal_toggle_wrapper {
-  width: @toggle-size;
-  height: @toggle-size;
+  width: @theme-toggle-size;
+  height: @theme-toggle-size;
   position: fixed;
   top: 7px;
   left: 40px;
@@ -43,70 +45,127 @@
   }
 }
 
-
 @media(max-width: 700px) {
   .charcoal_toggle_wrapper {
     left: 7px;
   }
 }
 
-// .switch {
-//   position: relative;
-//   display: inline-block;
-//   width: @slider-width;
-//   height: @slider-height;
-//   align-self: center;
-// }
+/* -------------- SETTINGS -------------- */
 
-// .switch input {
-//   opacity: 0;
-//   width: 0;
-//   height: 0;
-// }
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-// .slider {
-//   position: absolute;
-//   cursor: pointer;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: #ccc;
-//   -webkit-transition: .4s;
-//   transition: .4s;
-// }
+html.charcoal_settings {
+  position: relative;
+  width: 250px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-size: 100% auto;
+  font-family: "Open Sans", sans-serif;
 
-// .slider:before {
-//   position: absolute;
-//   content: "";
-//   height: @button-height;
-//   width: @button-height;
-//   left: @button-padding;
-//   bottom: @button-padding;
-//   background-color: white;
-//   -webkit-transition: .4s;
-//   transition: .4s;
-// }
+  &, * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
-// input:checked + .slider {
-//   background-color: #2196F3;
-// }
+  body {
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0;
+    margin: 0;
+  }
+}
 
-// input:focus + .slider {
-//   box-shadow: 0 0 1px #2196F3;
-// }
+.settings_dropdown {
+  .setting_row {
+    display: flex;
+    padding: 10px;
 
-// input:checked + .slider:before {
-//   -webkit-transform: translateX(@slider-translation);
-//   -ms-transform: translateX(@slider-translation);
-//   transform: translateX(@slider-translation);
-// }
+    .setting_name_label {
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+      flex-grow: 1;
+    }
 
-// /* Rounded sliders */
-// .slider.round {
-//   border-radius: @slider-height / 2;
-// }
+    &.disclosure {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 12px;
+    }
+  }
 
-// .slider.round:before {
-//   border-radius: 50%;
-// }
+  .separator {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* -------------- CUSTOM SWITCH -------------- */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: @slider-width;
+  height: @slider-height;
+  align-self: center;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: @button-height;
+  width: @button-height;
+  left: @button-padding;
+  bottom: @button-padding;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(@slider-translation);
+  -ms-transform: translateX(@slider-translation);
+  transform: translateX(@slider-translation);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: @slider-height / 2;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

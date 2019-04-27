@@ -2,6 +2,9 @@
   "manifest_version": 2,
   "name": "Charcoal Messenger",
   "version": "0.1",
+  "browser_action": {
+    "default_popup": "settings.html"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
