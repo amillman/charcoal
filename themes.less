@@ -12,11 +12,11 @@
 
 @other-message-text:            #d9d9d9;
 
-@highlighted:                   rgba(255, 255, 255, 0.1);
-@hover:                         rgba(255, 255, 255, 0.04);
+@highlighted:                   rgba(255, 255, 255, 0.12);
+@hover:                         rgba(255, 255, 255, 0.05);
 
 @primary-border:                rgba(255, 255, 255, 0.2);
-@secondary-border:              rgba(255, 255, 255, 0.1);
+@secondary-border:              rgba(255, 255, 255, 0.12);
 
 @light-shadow:                  0 1px 10px rgba(255, 255, 255, 0.10);
 @bordered-shadow:               0 0 0 1px @secondary-border, @light-shadow;
@@ -275,7 +275,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 // sectioned header
 ._225b {
   .charcoal_theme &, .midnight_theme & {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.04);
   }
 }
 
@@ -337,7 +337,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 /* -------------- HIGHLIGHTS/ HOVER -------------- */
 
-._5r8a._5r8b, ._5r8h:hover, ._1uwz, ._ric, ._4mnq, ._3b4h {
+._5r8a._5r8b, ._5r8h:hover, ._1uwz, ._ric, ._4mnq, ._3b4h,  {
   .charcoal_theme & {
     background-color: @highlighted!important;
   }
@@ -358,7 +358,8 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
-._1ht1:hover, ._1ht1._1ht2, ._682j:hover {
+._1ht1:hover, ._1ht1._1ht2, ._682j:hover, ._5l37:hover, ._5l37:active, ._1k1p,
+._2i-c ._54ne, ._1liy ._1lj0:hover {
   .charcoal_theme & {
     background-color: @hover!important;
   }
@@ -367,11 +368,19 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
+// dropdown items hover override
+._2i-c ._54ne ._54nh, ._2i-c ._54ne ._54nc {
+  .charcoal_theme &, .midnight_theme & {
+    background: none!important;
+  }
+}
+
 /* -------------- IMAGE COLORS -------------- */
 
 // generic
 ._23ct, .sp_DRWiQpFHw7f_2x.sx_d9163c, .sp_DRWiQpFHw7f_2x.sx_10c893,
-._2t5t, ._uwb ._uwa, ._nd_ ._2uf5 {
+._2t5t, ._uwb ._uwa, ._nd_ ._2uf5, .sp_nKFWmcbA0s9_2x.sx_9cf94f,
+.sp_nKFWmcbA0s9_2x.sx_573f36, ._57gs {
   .charcoal_theme &, .midnight_theme & {
     filter: invert(100%);
   }
@@ -387,7 +396,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 // dropdown caret
 ._53il ._558b+._53io, ._1r_9 ._53ik ._53io, ._53ii ._53ik>._53io,
-._1tpb ._53im ._53io {
+._1tpb ._53im ._53io, ._53ik ._558b+._53io {
   .charcoal_theme & {
     filter: invert(88%);
   }
@@ -398,7 +407,8 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 // message action icons
 .sp_glY2pvtQtyK_2x.sx_270a0f, .sp_L3WjSPMVfqB_2x.sx_8eaea4,
-.sp_DRWiQpFHw7f_2x.sx_ece9d1, ._2o-b {
+.sp_DRWiQpFHw7f_2x.sx_ece9d1, ._2o-b, .sp_nKFWmcbA0s9_2x.sx_4ab6a9,
+.sp_cNa2AaF_wTk_2x.sx_b4d522, .sp_nKFWmcbA0s9_2x.sx_c471f2 {
   .charcoal_theme &, .midnight_theme & {
     filter: brightness(45%);
   }
