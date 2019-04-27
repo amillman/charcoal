@@ -6,12 +6,15 @@
 @dropdown-background:           lighten(@screen-background, 5%);
 @reactions-background:          lighten(@screen-background, 25%);
 
+@messenger-blue-brightness:     85%;
+@chat-theme-brightness:         85%;
+
 @primary-text:                  #c9c9c9;
 @secondary-text:                darken(@primary-text, 35%);
 @link-text:                     lighten(@messenger-blue, 20%);
 
 @other-message-text:            #d9d9d9;
-@me-message-text:               fade(black, 70%);
+@me-message-text:               fade(black, 80%);
 
 @highlighted:                   rgba(255, 255, 255, 0.12);
 @hover:                         rgba(255, 255, 255, 0.05);
@@ -27,6 +30,9 @@
 @m-screen-background:             #000000;
 @m-dropdown-background:           lighten(@m-screen-background, 5%);
 @m-reactions-background:          lighten(@m-screen-background, 25%);
+
+@m-messenger-blue-brightness:     85%;
+@m-chat-theme-brightness:         85%;
 
 @m-primary-text:                  #c9c9c9;
 @m-secondary-text:                darken(@m-primary-text, 35%);
@@ -80,7 +86,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._4g0h, ._3xcx, ._2f5n ._29ey, ._2y8z, ._7s4d,
 ._3q35, ._7s4e, ._50cx, ._3cnl, ._3cnn a, ._3cnj, ._6cs7,
 ._1n-e, ._29_7 ._6e6n ._pye, ._1nc7 ._6e6n ._pye,
-._1nc7 ._pye, ._1nc6 ._pye, ._hh7 ._pye, {
+._1nc7 ._pye, ._1nc6 ._pye, ._hh7 ._pye, ._3x6v {
   .charcoal_theme & {
     color: @secondary-text;
   }
@@ -179,7 +185,7 @@ a {
 // main background
 body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._2f5n, html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
-._2-x5 {
+._2-x5, ._585r {
   .charcoal_theme & {
     background-color: @screen-background!important;
   }
@@ -282,6 +288,29 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
+/* -------------- COLOR ADJUSTMENTS -------------- */
+
+._nd_ ._hh7, ._nd_ ._hh7 a, ._2a45, ._3i_m ._2her, ._3szo ._6b45, ._3szo ._5odt,
+._3szo ._17vc, ._3szo ._3wh2, ._3szo svg, ._fl2 li, ._gs3 ._7h5m,
+._4rph ._4rpi, ._4rv3 ._4rv9, ._4rv3 ._38lh {
+  .charcoal_theme & {
+      filter: brightness(@chat-theme-brightness);
+    }
+    .midnight_theme & {
+      filter: brightness(@m-chat-theme-brightness);
+    }
+}
+
+._2oc8, ._2fug, ._4eby ._5ixy, ._3quh, ._1ht3 ._1ht7, ._-19._b-u, ._-19._b-v,
+.sp_3MZ0xziO-l7_2x.sx_424f45 {
+  .charcoal_theme & {
+      filter: brightness(@messenger-blue-brightness);
+    }
+    .midnight_theme & {
+      filter: brightness(@m-messenger-blue-brightness);
+    }
+}
+
 /* -------------- BORDER COLORS -------------- */
 
 ._1t2u, ._2y8_ {
@@ -299,7 +328,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._5r8e, ._37wv, ._37wu, ._5r86, ._1pka ._49no, ._1pka ._2abm,
 ._1pka ._5exl, ._49no, ._2abm, ._5exl, ._4uvi, html ._55r1,
 ._4lh2, ._1xd3, ._2d01, ._3cnp, ._10sf, ._1wc4, ._30e7 ._5j5f,
-._2m5p, ._3b4t, ._4coo, ._1jx4, ._2zl5 {
+._2m5p, ._3b4t, ._4coo, ._1jx4, ._2zl5, ._3g_j ._58an {
   .charcoal_theme & {
     border-color: @secondary-border!important;
   }
@@ -383,7 +412,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 // generic
 ._23ct, .sp_DRWiQpFHw7f_2x.sx_d9163c, .sp_DRWiQpFHw7f_2x.sx_10c893,
 ._uwb ._uwa, ._nd_ ._2uf5, .sp_nKFWmcbA0s9_2x.sx_9cf94f, ._2t5t,
-.sp_nKFWmcbA0s9_2x.sx_573f36, ._57gs {
+.sp_nKFWmcbA0s9_2x.sx_573f36, ._57gs, ._1vr2._22mn {
   .charcoal_theme &, .midnight_theme & {
     filter: invert(100%);
   }
@@ -467,8 +496,8 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
-// bold undread timestamp
-._1ht3 ._1ht7 {
+// bold undread timestamp, name in info bar
+._1ht3 ._1ht7, ._6ybk {
   .charcoal_theme &, .midnight_theme & {
     font-weight: bold;
   }
