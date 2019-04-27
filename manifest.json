@@ -9,7 +9,7 @@
     {
       "matches": ["*://*.messenger.com/*"],
       "css": ["stylesheet.css"],
-      "js": ["init.js"]
+      "js": ["mode.js", "init.js"]
     }
   ],
   "permissions": ["storage"],
