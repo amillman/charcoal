@@ -1,6 +1,7 @@
 @import (reference) "colors.less";
 
-@theme-toggle-size: 16px;
+@theme-toggle-size:             16px;
+@theme-toggle-circle-padding:   4px;
 
 @slider-height:                 20px;
 @slider-width:                  1.6666 * @slider-height;
@@ -25,15 +26,11 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+  position: relative;
 
   &:hover {
     cursor: pointer;
   }
-
-  // used for settings page
-  &.default { background-image:url('../assets/facebook-messenger.svg'); }
-  &.charcoal { background-image:url('../assets/charcoal-messenger.svg'); }
-  &.midnight { background-image:url('../assets/midnight-messenger-inverse.svg'); }
 
   .charcoal_theme & {
     &:after {
@@ -90,17 +87,35 @@ html.charcoal_settings {
   .setting_row {
     display: flex;
     padding: 10px;
+    height: 44px;
 
     .setting_name_label {
       color: black;
       font-size: 14px;
       font-weight: bold;
       flex-grow: 1;
+      align-self: center;
+    }
+
+    .charcoal_toggle_circle {
+      padding: @theme-toggle-circle-padding;
+      border-radius: (@theme-toggle-size + @theme-toggle-circle-padding*2)/2;
+      position: relative;
+      z-index: 1;
+
+      .charcoal_theme & {
+        background-color: @screen-background;
+      }
+
+      .midnight_theme & {
+        background-color: @m-screen-background;
+      }
     }
 
     &.disclosure {
       color: rgba(0, 0, 0, 0.4);
       font-size: 12px;
+      height: auto;
     }
   }
 

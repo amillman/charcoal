@@ -29,7 +29,22 @@ function _updateOptionsUI(isEnabled, mode) {
         themeSelector.classList.remove("hidden");
     }
 
-    themeSelector.getElementsByClassName("setting_row");
+    let options = themeSelector.getElementsByClassName("setting_row");
+    for (var i=0, option; option = options[i]; i++) {
+        let selectedCircle = option.getElementsByClassName("charcoal_toggle_circle")[0];
+        if (selectedCircle) {
+            selectedCircle.parentNode.removeChild(selectedCircle);
+        }
+
+        if (option.dataset.mode != mode) { continue; }
+
+        let settingLabel = option.getElementsByClassName("setting_name_label")[0];
+        settingLabel.insertAdjacentHTML("afterend", `
+            <div class="charcoal_toggle_circle ${themeClassName(mode)}">
+                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(mode)}')""></div>
+            </div>
+        `);
+    }
 }
 
 function _updateMode(isEnabled) {
