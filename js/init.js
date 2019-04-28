@@ -6,46 +6,54 @@ link.id = "charcoal-messenger";
 link.href = css;
 document.head.appendChild(link);
 
-getStoredMode(function(storedMode) {
-    var mode = storedMode;
+getStoredSettings(function(storedSettings) {
+    var settings = storedSettings;
 
-    console.log(`Loading initial theme ${mode}`);
-    document.documentElement.classList.add(themeClassName(mode));
+    console.log(`Loading initial settings enabled=${settings.isEnabled}, preferredTheme=${settings.preferredTheme}`);
+
+    if (settings.isEnabled) {
+        document.documentElement.classList.add(themeClassName(settings.preferredTheme));
+    }
 
     window.onload = function() {
         let settingsIcon = document.getElementsByClassName("_4kzu")[0];
         settingsIcon.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_wrapper">
-                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(mode)}')""></div>
+                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(settings)}')""></div>
             </div>
         `);
 
         let themeIcon = document.getElementsByClassName("charcoal_toggle")[0];
         themeIcon.onclick = function() {
-            let oldMode = mode;
-            mode = toggledMode(mode);
+            // let oldMode = mode;
+            // mode = toggledMode(mode);
 
-            console.log(`Switching theme to ${mode}`);
-            updateStoredMode(mode, function() {
-                updateUIWithMode(mode, oldMode);
-            });
+            // console.log(`Switching theme to ${mode}`);
+            // updateStoredMode(mode, function() {
+            //     updateUIWithMode(mode, oldMode);
+            // });
         }
 
-        listenForModeUpdates(function(newMode) {
-            if (newMode == mode) {
+        listenForModeUpdates(function(newSettings) {
+            if (newSettings == settings) {
                 return;
             }
 
-            console.log(`Switching theme to ${mode} from external update`);
+            console.log(`External update settings...
+                enabled=${newSettings.isEnabled}, preferredTheme=${newSettings.preferredTheme}`);
 
-            updateUIWithMode(newMode, mode);
-            mode = newMode;
+            settings = newSettings;
+            updateUI();
+
         });
 
-        function updateUIWithMode(mode, oldMode) {
-            document.documentElement.classList.remove(themeClassName(oldMode));
-            document.documentElement.classList.add(themeClassName(mode));
-            themeIcon.setAttribute("style", `background-image:url('${toggleIconURL(mode)}')`);
+        function updateUI() {
+            document.documentElement.classList.remove(themeClassName(CHARCOAL_MODE), themeClassName(MIDNIGHT_MODE));
+            if (settings.isEnabled) {
+                document.documentElement.classList.add(themeClassName(settings.preferredTheme));
+            }
+
+            themeIcon.setAttribute("style", `background-image:url('${toggleIconURL(settings)}')`);
         }
     }
 })

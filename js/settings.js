@@ -1,28 +1,30 @@
-getStoredMode(function(storedMode) {
-    var mode = storedMode;
+getStoredSettings(function(storedSettings) {
+    var settings = storedSettings;
 
     let modeSwitchInput = document.getElementById("theme_switch_input");
-    modeSwitchInput.checked = _charcoalIsEnabled(mode);
-    _updateOptionsUI(_charcoalIsEnabled(mode), mode);
+    modeSwitchInput.checked = settings.isEnabled;
+    _updateOptionsUI(settings);
+
     modeSwitchInput.addEventListener('change', (e) => {
-        mode = _updateMode(e.target.checked);
-        _updateOptionsUI(e.target.checked, mode);
+        settings.isEnabled = e.target.checked;
+        updateStoredSettings(settings);
+        _updateOptionsUI(settings);
     });
 
-    listenForModeUpdates(function(newMode) {
-        if (newMode == mode) {
+    listenForModeUpdates(function(newSettings) {
+        if (newSettings == settings) {
             return;
         }
 
-        mode = newMode;
-        modeSwitchInput.checked = _charcoalIsEnabled(mode);
-        _updateOptionsUI(modeSwitchInput.checked, mode);
+        settings = newSettings;
+        modeSwitchInput.checked = settings.isEnabled;
+        _updateOptionsUI(settings);
     });
 });
 
-function _updateOptionsUI(isEnabled, mode) {
+function _updateOptionsUI(settings) {
     let themeSelector = document.getElementById("theme_selector");
-    if (!isEnabled) {
+    if (!settings.isEnabled) {
         themeSelector.classList.add("hidden");
         return;
     } else {
@@ -36,23 +38,13 @@ function _updateOptionsUI(isEnabled, mode) {
             selectedCircle.parentNode.removeChild(selectedCircle);
         }
 
-        if (option.dataset.mode != mode) { continue; }
+        if (option.dataset.mode != settings.preferredTheme) { continue; }
 
         let settingLabel = option.getElementsByClassName("setting_name_label")[0];
         settingLabel.insertAdjacentHTML("afterend", `
-            <div class="charcoal_toggle_circle ${themeClassName(mode)}">
-                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(mode)}')""></div>
+            <div class="charcoal_toggle_circle ${themeClassName(settings.preferredTheme)}">
+                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(settings)}')""></div>
             </div>
         `);
     }
-}
-
-function _updateMode(isEnabled) {
-    var mode = isEnabled ? CHARCOAL_MODE : DEFAULT_MODE;
-    updateStoredMode(mode, function() {});
-    return mode;
-}
-
-function _charcoalIsEnabled(mode) {
-    return mode == CHARCOAL_MODE;
 }

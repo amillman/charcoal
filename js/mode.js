@@ -1,54 +1,63 @@
-let MODE_KEY = "mode"
+let MODE_KEY = "mode" // deprecated
+let SETTINGS_KEY = "settings"
 
 let DEFAULT_MODE = "default"
 let CHARCOAL_MODE = "charcoal"
 let MIDNIGHT_MODE = "midnight"
 
-function getStoredMode(callback) {
-    chrome.storage.sync.get(MODE_KEY, function(result) {
+function getStoredSettings(callback) {
+    chrome.storage.sync.get([SETTINGS_KEY, MODE_KEY], function(result) {
+        let storedSettings = result[SETTINGS_KEY];
         let storedMode = result[MODE_KEY];
-        var mode = CHARCOAL_MODE;
-        if (storedMode != null) {
-            mode = storedMode;
+
+        // convert old deprecated stored mode into settings
+        var settings;
+        if (storedSettings != null) {
+            settings = storedSettings;
+        } else if (storedMode != null) {
+            settings = _convertLegacyModeToSettings(storedMode);
+        } else {
+            settings = _convertLegacyModeToSettings(CHARCOAL_MODE);
         }
 
-        callback(mode);
+        callback(settings);
     });
 }
 
-function updateStoredMode(mode, callback) {
-    chrome.storage.sync.set({ [MODE_KEY]: mode }, callback);
+function updateStoredSettings(settings, callback) {
+    chrome.storage.sync.set({ [SETTINGS_KEY]: settings }, callback);
 }
 
 function listenForModeUpdates(handler) {
     chrome.storage.onChanged.addListener(function(changes) {
-        let newMode = changes[MODE_KEY].newValue;
-        if (newMode != null) {
-            handler(newMode);
+        let newSettings = changes[SETTINGS_KEY].newValue;
+        if (newSettings != null) {
+            handler(newSettings);
         }
     });
 }
 
 function themeClassName(mode) {
-    if (mode == DEFAULT_MODE) {
-        return "default_theme";
-    } else if (mode == CHARCOAL_MODE) {
+    if (mode == CHARCOAL_MODE) {
         return "charcoal_theme"
     } else if (mode == MIDNIGHT_MODE) {
         return "midnight_theme"
     }
 }
 
-function toggleIconURL(mode) {
-    if (mode == DEFAULT_MODE) {
+function toggleIconURL(settings) {
+    if (!settings.isEnabled) {
         return chrome.extension.getURL("assets/facebook-messenger.svg");
-    } else if (mode == CHARCOAL_MODE) {
+    } else if (settings.preferredTheme == CHARCOAL_MODE) {
         return chrome.extension.getURL("assets/charcoal-messenger.svg");
-    } else if (mode == MIDNIGHT_MODE) {
+    } else if (settings.preferredTheme == MIDNIGHT_MODE) {
         return chrome.extension.getURL("assets/midnight-messenger.svg");
     }
 }
 
-function toggledMode(mode) {
-    return mode == DEFAULT_MODE ? CHARCOAL_MODE : DEFAULT_MODE;
+function _convertLegacyModeToSettings(mode) {
+    var settings = {};
+    settings.preferredTheme = CHARCOAL_MODE;
+    settings.isEnabled = mode != DEFAULT_MODE;
+    return settings;
 }
