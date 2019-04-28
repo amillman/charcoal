@@ -32,8 +32,8 @@ getStoredSettings(function(storedSettings) {
                 if (this.status!==200) return; // or whatever error handling you want
                 console.log(this);
                 themeIcon.insertAdjacentHTML("afterend", `
-                    <div class="in_messenger_dropdown_wrapper">
-                        <div class="charcoal_settings">${this.responseText}</div>
+                    <div class="charcoal_settings offset">
+                        <div id="in_messenger_dropdown_container">${this.responseText}</div>
                     </div>
                 `);
 

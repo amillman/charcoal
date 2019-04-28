@@ -58,22 +58,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-// used when settings are displayed within messenger
-.in_messenger_dropdown_wrapper {
-  border-radius: 5px;
-  display: inline-block;
-  padding: 3px 0px;
-
-  .charcoal_theme & {
-    background-color: @screen-background;
-    box-shadow: @bordered-shadow;
-  }
-  .midnight_theme & {
-    background-color: @screen-background;
-    box-shadow: @m-bordered-shadow;
-  }
-}
-
 .charcoal_settings {
   position: relative;
   width: 250px;
@@ -81,6 +65,11 @@
   margin: 0;
   background-size: 100% auto;
   font-family: "Open Sans", sans-serif;
+
+  &.offset {
+    top: -18px;
+    left: 23px;
+  }
 
   &, * {
     -webkit-box-sizing: border-box;
@@ -104,6 +93,30 @@
     right: 0px;
     padding: 0;
     margin: 0;
+  }
+
+  // used when settings are displayed within messenger
+  #in_messenger_dropdown_container {
+    border-radius: 5px;
+    padding: 3px 0px;
+    background-color: @def-dropdown-background;
+    box-shadow: @def-bordered-shadow;
+
+    .charcoal_theme & {
+      background-color: @dropdown-background;
+      box-shadow: @bordered-shadow;
+    }
+    .midnight_theme & {
+      background-color: @m-dropdown-background;
+      box-shadow: @m-bordered-shadow;
+    }
+  }
+
+  .disclosure {
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    height: auto;
   }
 }
 
@@ -135,12 +148,6 @@
       border-radius: (@theme-toggle-size + @theme-toggle-circle-padding*2)/2;
       position: relative;
       z-index: 1;
-    }
-
-    &.disclosure {
-      color: rgba(0, 0, 0, 0.4);
-      font-size: 12px;
-      height: auto;
     }
   }
 
@@ -174,7 +181,7 @@
       }
     }
 
-    .in_messenger_dropdown_wrapper & {
+    #in_messenger_dropdown_container & {
       border: 1px solid rgba(0, 0, 0, 0.1);
 
       .charcoal_theme & {
