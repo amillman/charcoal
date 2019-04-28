@@ -16,6 +16,7 @@
   width: @theme-toggle-size;
   height: @theme-toggle-size;
   position: fixed;
+  z-index: 999;
   top: 7px;
   left: 40px;
 }
@@ -57,7 +58,23 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-html.charcoal_settings {
+// used when settings are displayed within messenger
+.in_messenger_dropdown_wrapper {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 3px 0px;
+
+  .charcoal_theme & {
+    background-color: @screen-background;
+    box-shadow: @bordered-shadow;
+  }
+  .midnight_theme & {
+    background-color: @screen-background;
+    box-shadow: @m-bordered-shadow;
+  }
+}
+
+.charcoal_settings {
   position: relative;
   width: 250px;
   padding: 0;
@@ -90,7 +107,7 @@ html.charcoal_settings {
   }
 }
 
-.settings_dropdown {
+.settings_list {
   .setting_row {
     display: flex;
     padding: 10px;
@@ -154,6 +171,18 @@ html.charcoal_settings {
     .setting_row {
       &:hover {
         cursor: pointer;
+      }
+    }
+
+    .in_messenger_dropdown_wrapper & {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+
+      .charcoal_theme & {
+        border-color: @secondary-border;
+      }
+
+      .midnight_theme & {
+        border-color: @m-secondary-border;
       }
     }
   }

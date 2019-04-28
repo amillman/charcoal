@@ -1,44 +1,46 @@
-getStoredSettings(function(storedSettings) {
-    var settings = storedSettings;
+function runSettings() {
+    getStoredSettings(function(storedSettings) {
+        var settings = storedSettings;
 
-    let modeSwitchInput = document.getElementById("theme_switch_input");
-    modeSwitchInput.checked = settings.isEnabled;
-    _updateOptionsUI(settings);
+        let modeSwitchInput = document.getElementById("theme_switch_input");
+        modeSwitchInput.checked = settings.isEnabled;
+        _updateOptionsUI(settings);
 
-    modeSwitchInput.addEventListener('change', (e) => {
-        settings.isEnabled = e.target.checked;
-        updateStoredSettings(settings, function() {
-            _updateOptionsUI(settings);
-        });
-    });
-
-    let themeSelector = document.getElementById("theme_selector");
-    let options = themeSelector.getElementsByClassName("setting_row");
-    for (var i=0, option; option = options[i]; i++) {
-        option.onclick = function() {
-            if (themeSelector.classList.contains("disabled")) {
-                return;
-            }
-
-            let newTheme = this.dataset.theme;
-            if (newTheme == null) { return; }
-            settings.preferredTheme = newTheme;
+        modeSwitchInput.addEventListener('change', (e) => {
+            settings.isEnabled = e.target.checked;
             updateStoredSettings(settings, function() {
                 _updateOptionsUI(settings);
             });
-        };
-    }
+        });
 
-    listenForSettingsUpdates(function(newSettings) {
-        if (newSettings == settings) {
-            return;
+        let themeSelector = document.getElementById("theme_selector");
+        let options = themeSelector.getElementsByClassName("setting_row");
+        for (var i=0, option; option = options[i]; i++) {
+            option.onclick = function() {
+                if (themeSelector.classList.contains("disabled")) {
+                    return;
+                }
+
+                let newTheme = this.dataset.theme;
+                if (newTheme == null) { return; }
+                settings.preferredTheme = newTheme;
+                updateStoredSettings(settings, function() {
+                    _updateOptionsUI(settings);
+                });
+            };
         }
 
-        settings = newSettings;
-        modeSwitchInput.checked = settings.isEnabled;
-        _updateOptionsUI(settings);
+        listenForSettingsUpdates(function(newSettings) {
+            if (newSettings == settings) {
+                return;
+            }
+
+            settings = newSettings;
+            modeSwitchInput.checked = settings.isEnabled;
+            _updateOptionsUI(settings);
+        });
     });
-});
+}
 
 function _updateOptionsUI(settings) {
     let themeSelector = document.getElementById("theme_selector");

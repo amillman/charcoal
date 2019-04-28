@@ -1,10 +1,10 @@
-let css = chrome.extension.getURL("stylesheet.css");
-let link = document.createElement('link');
-link.type = 'text/css';
-link.rel = 'stylesheet';
-link.id = "charcoal-messenger";
-link.href = css;
-document.head.appendChild(link);
+// let css = chrome.extension.getURL("../styles/stylesheet.css");
+// let link = document.createElement('link');
+// link.type = 'text/css';
+// link.rel = 'stylesheet';
+// link.id = "charcoal-messenger";
+// link.href = css;
+// document.head.appendChild(link);
 
 getStoredSettings(function(storedSettings) {
     var settings = storedSettings;
@@ -25,13 +25,21 @@ getStoredSettings(function(storedSettings) {
 
         let themeIcon = document.getElementsByClassName("charcoal_toggle")[0];
         themeIcon.onclick = function() {
-            // let oldMode = mode;
-            // mode = toggledMode(mode);
+            var xhr= new XMLHttpRequest();
+            xhr.open('GET', chrome.extension.getURL('settings.html'), true);
+            xhr.onreadystatechange= function() {
+                if (this.readyState!==4) return;
+                if (this.status!==200) return; // or whatever error handling you want
+                console.log(this);
+                themeIcon.insertAdjacentHTML("afterend", `
+                    <div class="in_messenger_dropdown_wrapper">
+                        <div class="charcoal_settings">${this.responseText}</div>
+                    </div>
+                `);
 
-            // console.log(`Switching theme to ${mode}`);
-            // updateStoredMode(mode, function() {
-            //     updateUIWithMode(mode, oldMode);
-            // });
+                runSettings();
+            };
+            xhr.send();
         }
 
         listenForSettingsUpdates(function(newSettings) {
