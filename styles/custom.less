@@ -96,8 +96,17 @@ html.charcoal_settings {
     padding: 10px;
     height: 44px;
 
+    &.charcoal_theme {
+      background-color: @screen-background;
+      color: @primary-text;
+    }
+
+    &.midnight_theme {
+      background-color: @m-screen-background;
+      color: @m-primary-text;
+    }
+
     .setting_name_label {
-      color: black;
       font-size: 14px;
       font-weight: bold;
       flex-grow: 1;
@@ -109,14 +118,6 @@ html.charcoal_settings {
       border-radius: (@theme-toggle-size + @theme-toggle-circle-padding*2)/2;
       position: relative;
       z-index: 1;
-
-      &.charcoal_theme {
-        background-color: @screen-background;
-      }
-
-      &.midnight_theme {
-        background-color: @m-screen-background;
-      }
     }
 
     &.disclosure {
@@ -135,9 +136,10 @@ html.charcoal_settings {
   .options {
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
     overflow: hidden;
     position: relative;
+    margin: 5px 10px;
+    border-radius: 5px;
 
     &.disabled {
       .setting_row {
@@ -150,8 +152,6 @@ html.charcoal_settings {
     }
 
     .setting_row {
-      padding-left: 0px;
-
       &:hover {
         cursor: pointer;
       }
