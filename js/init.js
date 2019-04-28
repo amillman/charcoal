@@ -19,7 +19,7 @@ getStoredSettings(function(storedSettings) {
         let settingsIcon = document.getElementsByClassName("_4kzu")[0];
         settingsIcon.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_wrapper">
-                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(settings)}')""></div>
+                <div class="charcoal_toggle" style="background-image:url('${settingsIconURL(settings)}')""></div>
             </div>
         `);
 
@@ -34,7 +34,7 @@ getStoredSettings(function(storedSettings) {
             // });
         }
 
-        listenForModeUpdates(function(newSettings) {
+        listenForSettingsUpdates(function(newSettings) {
             if (newSettings == settings) {
                 return;
             }
@@ -53,7 +53,7 @@ getStoredSettings(function(storedSettings) {
                 document.documentElement.classList.add(themeClassName(settings.preferredTheme));
             }
 
-            themeIcon.setAttribute("style", `background-image:url('${toggleIconURL(settings)}')`);
+            themeIcon.setAttribute("style", `background-image:url('${settingsIconURL(settings)}')`);
         }
     }
 })

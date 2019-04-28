@@ -28,7 +28,7 @@ function updateStoredSettings(settings, callback) {
     chrome.storage.sync.set({ [SETTINGS_KEY]: settings }, callback);
 }
 
-function listenForModeUpdates(handler) {
+function listenForSettingsUpdates(handler) {
     chrome.storage.onChanged.addListener(function(changes) {
         let newSettings = changes[SETTINGS_KEY].newValue;
         if (newSettings != null) {
@@ -45,12 +45,18 @@ function themeClassName(mode) {
     }
 }
 
-function toggleIconURL(settings) {
+function settingsIconURL(settings) {
     if (!settings.isEnabled) {
         return chrome.extension.getURL("assets/facebook-messenger.svg");
-    } else if (settings.preferredTheme == CHARCOAL_MODE) {
+    } else {
+        return themeIconURL(settings.preferredTheme);
+    }
+}
+
+function themeIconURL(theme) {
+    if (theme == CHARCOAL_MODE) {
         return chrome.extension.getURL("assets/charcoal-messenger.svg");
-    } else if (settings.preferredTheme == MIDNIGHT_MODE) {
+    } else if (theme == MIDNIGHT_MODE) {
         return chrome.extension.getURL("assets/midnight-messenger.svg");
     }
 }

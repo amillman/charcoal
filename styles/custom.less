@@ -69,6 +69,13 @@ html.charcoal_settings {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
   }
 
   body {
@@ -103,11 +110,11 @@ html.charcoal_settings {
       position: relative;
       z-index: 1;
 
-      .charcoal_theme & {
+      &.charcoal_theme {
         background-color: @screen-background;
       }
 
-      .midnight_theme & {
+      &.midnight_theme {
         background-color: @m-screen-background;
       }
     }
@@ -132,12 +139,22 @@ html.charcoal_settings {
     overflow: hidden;
     position: relative;
 
-    &.hidden {
-      height: 0px;
+    &.disabled {
+      .setting_row {
+        opacity: 0.30;
+
+        &, * {
+          cursor: auto!important;
+        }
+      }
     }
 
     .setting_row {
       padding-left: 0px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

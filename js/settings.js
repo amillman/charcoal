@@ -7,11 +7,29 @@ getStoredSettings(function(storedSettings) {
 
     modeSwitchInput.addEventListener('change', (e) => {
         settings.isEnabled = e.target.checked;
-        updateStoredSettings(settings);
-        _updateOptionsUI(settings);
+        updateStoredSettings(settings, function() {
+            _updateOptionsUI(settings);
+        });
     });
 
-    listenForModeUpdates(function(newSettings) {
+    let themeSelector = document.getElementById("theme_selector");
+    let options = themeSelector.getElementsByClassName("setting_row");
+    for (var i=0, option; option = options[i]; i++) {
+        option.onclick = function() {
+            if (themeSelector.classList.contains("disabled")) {
+                return;
+            }
+
+            let newTheme = this.dataset.theme;
+            if (newTheme == null) { return; }
+            settings.preferredTheme = newTheme;
+            updateStoredSettings(settings, function() {
+                _updateOptionsUI(settings);
+            });
+        };
+    }
+
+    listenForSettingsUpdates(function(newSettings) {
         if (newSettings == settings) {
             return;
         }
@@ -25,10 +43,9 @@ getStoredSettings(function(storedSettings) {
 function _updateOptionsUI(settings) {
     let themeSelector = document.getElementById("theme_selector");
     if (!settings.isEnabled) {
-        themeSelector.classList.add("hidden");
-        return;
+        themeSelector.classList.add("disabled");
     } else {
-        themeSelector.classList.remove("hidden");
+        themeSelector.classList.remove("disabled");
     }
 
     let options = themeSelector.getElementsByClassName("setting_row");
@@ -38,12 +55,12 @@ function _updateOptionsUI(settings) {
             selectedCircle.parentNode.removeChild(selectedCircle);
         }
 
-        if (option.dataset.mode != settings.preferredTheme) { continue; }
+        if (option.dataset.theme != settings.preferredTheme) { continue; }
 
         let settingLabel = option.getElementsByClassName("setting_name_label")[0];
         settingLabel.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_circle ${themeClassName(settings.preferredTheme)}">
-                <div class="charcoal_toggle" style="background-image:url('${toggleIconURL(settings)}')""></div>
+                <div class="charcoal_toggle" style="background-image:url('${themeIconURL(settings.preferredTheme)}')""></div>
             </div>
         `);
     }
