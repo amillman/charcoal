@@ -24,18 +24,31 @@ getStoredSettings(function(storedSettings) {
         `);
 
         let themeIcon = document.getElementsByClassName("charcoal_toggle")[0];
+        var settingsDropdown = document.getElementsByClassName("charcoal_settings")[0];
         themeIcon.onclick = function() {
+            console.log(settingsDropdown);
+            if (settingsDropdown != null) { return;
+            }
             var xhr= new XMLHttpRequest();
             xhr.open('GET', chrome.extension.getURL('settings.html'), true);
             xhr.onreadystatechange= function() {
                 if (this.readyState!==4) return;
                 if (this.status!==200) return; // or whatever error handling you want
-                console.log(this);
                 themeIcon.insertAdjacentHTML("afterend", `
                     <div class="charcoal_settings offset">
-                        <div id="in_messenger_dropdown_container">${this.responseText}</div>
+                        <div id="in_messenger_dropdown_container">
+                            ${this.responseText}
+                            <div class="button" id="charcoal_settings_done_button">Done</div>
+                        </div>
                     </div>
                 `);
+
+                settingsDropdown = document.getElementsByClassName("charcoal_settings")[0];
+
+                document.getElementById("charcoal_settings_done_button").onclick = function() {
+                    settingsDropdown.parentNode.removeChild(settingsDropdown);
+                    settingsDropdown = null;
+                }
 
                 runSettings();
             };

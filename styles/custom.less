@@ -113,10 +113,40 @@
   }
 
   .disclosure {
-    padding: 10px;
+    margin: 10px;
     color: rgba(0, 0, 0, 0.4);
     font-size: 12px;
     height: auto;
+  }
+
+  .button {
+    margin: 10px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    color: white;
+    background-color: @messenger-blue;
+    text-align: center;
+    font-weight: bold;
+
+    .charcoal_theme & {
+      background-color: rgba(255,255, 255, 0.2);
+      color: @primary-text;
+    }
+
+    .midnight_theme & {
+      background-color: rgba(255,255, 255, 0.25);
+      color: @m-primary-text;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
   }
 }
 
@@ -182,7 +212,7 @@
     }
 
     #in_messenger_dropdown_container & {
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0,0,0,0);
 
       .charcoal_theme & {
         border-color: @secondary-border;
