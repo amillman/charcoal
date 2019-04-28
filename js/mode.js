@@ -2,6 +2,7 @@ let MODE_KEY = "mode"
 
 let DEFAULT_MODE = "default"
 let CHARCOAL_MODE = "charcoal"
+let MIDNIGHT_MODE = "midnight"
 
 function getStoredMode(callback) {
     chrome.storage.sync.get(MODE_KEY, function(result) {
@@ -33,6 +34,8 @@ function themeClassName(mode) {
         return "default_theme";
     } else if (mode == CHARCOAL_MODE) {
         return "charcoal_theme"
+    } else if (mode == MIDNIGHT_MODE) {
+        return "midnight_theme"
     }
 }
 
@@ -41,6 +44,8 @@ function toggleIconURL(mode) {
         return chrome.extension.getURL("assets/facebook-messenger.svg");
     } else if (mode == CHARCOAL_MODE) {
         return chrome.extension.getURL("assets/charcoal-messenger.svg");
+    } else if (mode == MIDNIGHT_MODE) {
+        return chrome.extension.getURL("assets/midnight-messenger.svg");
     }
 }
 
