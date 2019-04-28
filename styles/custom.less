@@ -17,30 +17,35 @@
   position: fixed;
   top: 7px;
   left: 40px;
+}
 
-  .charcoal_toggle {
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+.charcoal_toggle {
+  width: @theme-toggle-size;
+  height: @theme-toggle-size;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 
-    &:hover {
-      cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
 
-    .charcoal_theme & {
-      &:after {
-        content: "";
-        display: block;
-        background-color: white;
-        position: absolute;
-        width: 70%;
-        height: 40%;
-        left: 15%;
-        top: 30%;
-        z-index: -1;
-      }
+  // used for settings page
+  &.default { background-image:url('../assets/facebook-messenger.svg'); }
+  &.charcoal { background-image:url('../assets/charcoal-messenger.svg'); }
+  &.midnight { background-image:url('../assets/midnight-messenger-inverse.svg'); }
+
+  .charcoal_theme & {
+    &:after {
+      content: "";
+      display: block;
+      background-color: white;
+      position: absolute;
+      width: 70%;
+      height: 40%;
+      left: 15%;
+      top: 30%;
+      z-index: -1;
     }
   }
 }
@@ -58,7 +63,6 @@
 html.charcoal_settings {
   position: relative;
   width: 250px;
-  height: 100%;
   padding: 0;
   margin: 0;
   background-size: 100% auto;
@@ -105,6 +109,22 @@ html.charcoal_settings {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
   }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    overflow: hidden;
+    position: relative;
+
+    &.hidden {
+      height: 0px;
+    }
+
+    .setting_row {
+      padding-left: 0px;
+    }
+  }
 }
 
 /* -------------- CUSTOM SWITCH -------------- */
@@ -148,11 +168,11 @@ html.charcoal_settings {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: @messenger-blue;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px @messenger-blue;
 }
 
 input:checked + .slider:before {
