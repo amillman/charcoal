@@ -65,6 +65,7 @@
   margin: 0;
   background-size: 100% auto;
   font-family: "Open Sans", Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
+  display: flex;
 
   &.offset {
     top: -18px;
@@ -95,34 +96,77 @@
     margin: 0;
   }
 
-  // used when settings are displayed within messenger
-  #in_messenger_dropdown_container {
-    border-radius: 5px;
-    padding: 3px 0px;
-    background-color: @def-dropdown-background;
-    box-shadow: @def-bordered-shadow;
+  .dropdown_container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 
-    .charcoal_theme & {
-      background-color: @dropdown-background;
-      box-shadow: @bordered-shadow;
+    > * {
+      margin: 10px;
+
+      &:not(:first-child) {
+        margin-top: 0px;
+      }
     }
-    .midnight_theme & {
-      background-color: @m-dropdown-background;
-      box-shadow: @m-bordered-shadow;
+
+    // for dropdowns within messenger
+    &.in_messenger_dropdown_container {
+      border-radius: 5px;
+      background-color: @def-dropdown-background;
+      box-shadow: @def-bordered-shadow;
+
+      .charcoal_theme & {
+        background-color: @dropdown-background;
+        box-shadow: @bordered-shadow;
+      }
+      .midnight_theme & {
+        background-color: @m-dropdown-background;
+        box-shadow: @m-bordered-shadow;
+      }
     }
   }
 
-  .disclosure {
-    margin: 10px;
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 12px;
-    height: auto;
+  .header {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: @def-primary-text;
+
+    .charcoal_theme & {
+      color: @primary-text;
+    }
+
+    .midnight_theme & {
+      color: @m-primary-text;
+    }
+  }
+
+  .body {
+    color: @def-primary-text;
+    font-size: 14px;
+
+    .charcoal_theme & {
+      color: @primary-text;
+    }
+
+    .midnight_theme & {
+      color: @m-primary-text;
+    }
+  }
+
+  .button_list {
+    display: flex;
+    flex-direction: column;
+
+    > .button:not(.first-child) {
+      margin-top: 5px;
+    }
   }
 
   .button {
-    margin: 10px;
     height: 30px;
     line-height: 30px;
+    font-size: 14px;
     border-radius: 5px;
     color: white;
     background-color: @messenger-blue;
@@ -135,8 +179,21 @@
     }
 
     .midnight_theme & {
-      background-color: rgba(255,255, 255, 0.25);
-      color: @m-primary-text;
+      background-color: @m-primary-text;
+      color: @m-dropdown-background;
+    }
+
+    &.secondary {
+      background: none;
+      color: @messenger-blue;
+
+      .charcoal_theme & {
+        color: @primary-text;
+      }
+
+      .midnight_theme & {
+        color: @m-primary-text;
+      }
     }
 
     &:hover {
@@ -148,13 +205,27 @@
       opacity: 0.7;
     }
   }
+
+  .disclosure {
+    margin: 10px;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    height: auto;
+  }
 }
 
 .settings_list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px!important;
+
   .setting_row {
     display: flex;
-    padding: 10px;
     height: 44px;
+
+    &.theme {
+      padding: 0px 10px;
+    }
 
     &.charcoal_theme {
       background-color: @screen-background;
@@ -178,6 +249,7 @@
       border-radius: (@theme-toggle-size + @theme-toggle-circle-padding*2)/2;
       position: relative;
       z-index: 1;
+      align-self: center;
     }
   }
 
@@ -192,7 +264,7 @@
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    margin: 5px 10px;
+    margin: 5px 0px;
     border-radius: 5px;
 
     &.disabled {
@@ -211,7 +283,7 @@
       }
     }
 
-    #in_messenger_dropdown_container & {
+    .in_messenger_dropdown_container & {
       border: 1px solid rgba(0,0,0,0);
 
       .charcoal_theme & {

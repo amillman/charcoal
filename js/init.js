@@ -29,7 +29,7 @@ getStoredSettings(function(storedSettings) {
                 if (this.status!==200) return; // or whatever error handling you want
                 themeIcon.insertAdjacentHTML("afterend", `
                     <div class="charcoal_dropdown offset" id="charcoal_settings">
-                        <div id="in_messenger_dropdown_container">
+                        <div class="dropdown_container in_messenger_dropdown_container">
                             ${this.responseText}
                             <div class="button" id="charcoal_settings_done_button">Done</div>
                         </div>
@@ -89,6 +89,28 @@ getStoredSettings(function(storedSettings) {
 function _showNewThemesOnboardingIfNeeded() {
     checkIfOnboardingNeeded(NEW_THEMES_ONBOARDING_KEY, function(showOnboarding) {
         if (!showOnboarding) { return; }
+
+        let themeIcon = document.getElementsByClassName("charcoal_toggle")[0];
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', chrome.extension.getURL('onboarding_dropdown.html'), true);
+        xhr.onreadystatechange= function() {
+            if (this.readyState!==4) return;
+            if (this.status!==200) return; // or whatever error handling you want
+
+            themeIcon.insertAdjacentHTML("afterend", this.response);
+
+            // settingsDropdown = document.getElementById("charcoal_settings");
+
+            // // dismiss via done button
+            // document.getElementById("charcoal_settings_done_button").onclick = function() {
+            //     settingsDropdown.parentNode.removeChild(settingsDropdown);
+            //     settingsDropdown = null;
+            // }
+
+            // runSettings();
+        };
+        xhr.send();
     });
 }
 
