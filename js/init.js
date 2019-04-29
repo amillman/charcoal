@@ -19,7 +19,7 @@ getStoredSettings(function(storedSettings) {
 
         // show settings on click
         let themeIcon = document.getElementsByClassName("charcoal_toggle")[0];
-        var settingsDropdown = document.getElementsByClassName("charcoal_settings")[0];
+        var settingsDropdown = document.getElementById("charcoal_settings");
         themeIcon.onclick = function() {
             if (settingsDropdown != null) { return; }
             var xhr= new XMLHttpRequest();
@@ -28,7 +28,7 @@ getStoredSettings(function(storedSettings) {
                 if (this.readyState!==4) return;
                 if (this.status!==200) return; // or whatever error handling you want
                 themeIcon.insertAdjacentHTML("afterend", `
-                    <div class="charcoal_settings offset">
+                    <div class="charcoal_dropdown offset" id="charcoal_settings">
                         <div id="in_messenger_dropdown_container">
                             ${this.responseText}
                             <div class="button" id="charcoal_settings_done_button">Done</div>
@@ -36,7 +36,7 @@ getStoredSettings(function(storedSettings) {
                     </div>
                 `);
 
-                settingsDropdown = document.getElementsByClassName("charcoal_settings")[0];
+                settingsDropdown = document.getElementById("charcoal_settings");
 
                 // dismiss via done button
                 document.getElementById("charcoal_settings_done_button").onclick = function() {
@@ -80,7 +80,15 @@ getStoredSettings(function(storedSettings) {
 
             themeIcon.setAttribute("style", `background-image:url('${settingsIconURL(settings)}')`);
         });
+
+        _showNewThemesOnboardingIfNeeded();
     }
 })
 
+
+function _showNewThemesOnboardingIfNeeded() {
+    checkIfOnboardingNeeded(NEW_THEMES_ONBOARDING_KEY, function(showOnboarding) {
+        if (!showOnboarding) { return; }
+    });
+}
 

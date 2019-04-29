@@ -5,6 +5,9 @@ let DEFAULT_MODE = "default"
 let CHARCOAL_MODE = "charcoal"
 let MIDNIGHT_MODE = "midnight"
 
+// onboarding / education
+let NEW_THEMES_ONBOARDING_KEY = "NEW_THEMES_ONBOARDING_KEY"
+
 function getStoredSettings(callback) {
     chrome.storage.sync.get([SETTINGS_KEY, MODE_KEY], function(result) {
         let storedSettings = result[SETTINGS_KEY];
@@ -34,6 +37,13 @@ function listenForSettingsUpdates(handler) {
         if (newSettings != null) {
             handler(newSettings);
         }
+    });
+}
+
+function checkIfOnboardingNeeded(key, handler) {
+    chrome.storage.sync.get(key, function(result) {
+        let hasSeenOnboarding = result[key];
+        handler(hasSeenOnboarding == null || !hasSeenOnboarding);
     });
 }
 
