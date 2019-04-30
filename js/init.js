@@ -1,5 +1,8 @@
+var settings;
+var settingsDropdown;
+
 getStoredSettings(function(storedSettings) {
-    var settings = storedSettings;
+    settings = storedSettings;
 
     console.log(`Loading initial settings enabled=${settings.isEnabled}, preferredTheme=${settings.preferredTheme}`);
 
@@ -19,42 +22,7 @@ getStoredSettings(function(storedSettings) {
 
         // show settings on click
         let charcoalIcon = document.getElementsByClassName("charcoal_toggle")[0];
-        var settingsDropdown = document.getElementById("charcoal_settings");
-        charcoalIcon.onclick = function() {
-            if (settingsDropdown != null) { return; }
-
-            // remove any onboarding dropdowns if user presses settings button
-            let onboardingDropdowns = document.getElementsByClassName("charcoal_dropdown onboarding");
-            for (var i=0, dropdown; dropdown = onboardingDropdowns[i]; i++) {
-                dropdown.parentNode.removeChild(dropdown);
-            }
-
-            var xhr= new XMLHttpRequest();
-            xhr.open('GET', chrome.extension.getURL('settings.html'), true);
-            xhr.onreadystatechange= function() {
-                if (this.readyState!==4) return;
-                if (this.status!==200) return; // or whatever error handling you want
-                charcoalIcon.insertAdjacentHTML("afterend", `
-                    <div class="charcoal_dropdown offset" id="charcoal_settings">
-                        <div class="dropdown_container in_messenger_dropdown_container">
-                            ${this.responseText}
-                            <div class="button" id="charcoal_settings_done_button">Done</div>
-                        </div>
-                    </div>
-                `);
-
-                settingsDropdown = document.getElementById("charcoal_settings");
-
-                // dismiss via done button
-                document.getElementById("charcoal_settings_done_button").onclick = function() {
-                    settingsDropdown.parentNode.removeChild(settingsDropdown);
-                    settingsDropdown = null;
-                }
-
-                runSettings();
-            };
-            xhr.send();
-        }
+        charcoalIcon.onclick = _openSettings;
 
         // allow tapping outside settings dropdown to dismiss it
         window.onclick = function(e) {
@@ -92,12 +60,13 @@ getStoredSettings(function(storedSettings) {
     }
 })
 
+function _getCharcoalIcon() {
+    return document.getElementsByClassName("charcoal_toggle")[0];
+}
 
 function _showNewThemesOnboardingIfNeeded() {
     checkIfOnboardingNeeded(NEW_THEMES_ONBOARDING_KEY, function(showOnboarding) {
         if (!showOnboarding) { return; }
-
-        let charcoalIcon = document.getElementsByClassName("charcoal_toggle")[0];
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', chrome.extension.getURL('onboarding_dropdown.html'), true);
@@ -105,9 +74,15 @@ function _showNewThemesOnboardingIfNeeded() {
             if (this.readyState!==4) return;
             if (this.status!==200) return; // or whatever error handling you want
 
-            charcoalIcon.insertAdjacentHTML("afterend", this.response);
+            _getCharcoalIcon().insertAdjacentHTML("afterend", this.response);
 
             let onboardingDropdown = document.getElementsByClassName("charcoal_dropdown onboarding")[0];
+
+            // dismiss via close button
+            document.getElementById("charcoal_onboarding_go_button").onclick = function() {
+                onboardingDropdown.parentNode.removeChild(onboardingDropdown);
+                _openSettings();
+            }
 
             // dismiss via close button
             document.getElementById("charcoal_onboarding_close_button").onclick = function() {
@@ -118,3 +93,38 @@ function _showNewThemesOnboardingIfNeeded() {
     });
 }
 
+function _openSettings() {
+    if (settingsDropdown != null) { return; }
+
+    // remove any onboarding dropdowns if user presses settings button
+    let onboardingDropdowns = document.getElementsByClassName("charcoal_dropdown onboarding");
+    for (var i=0, dropdown; dropdown = onboardingDropdowns[i]; i++) {
+        dropdown.parentNode.removeChild(dropdown);
+    }
+
+    var xhr= new XMLHttpRequest();
+    xhr.open('GET', chrome.extension.getURL('settings.html'), true);
+    xhr.onreadystatechange= function() {
+        if (this.readyState!==4) return;
+        if (this.status!==200) return; // or whatever error handling you want
+        _getCharcoalIcon().insertAdjacentHTML("afterend", `
+            <div class="charcoal_dropdown offset" id="charcoal_settings">
+                <div class="dropdown_container in_messenger_dropdown_container">
+                    ${this.responseText}
+                    <div class="button" id="charcoal_settings_done_button">Done</div>
+                </div>
+            </div>
+        `);
+
+        settingsDropdown = document.getElementById("charcoal_settings");
+
+        // dismiss via done button
+        document.getElementById("charcoal_settings_done_button").onclick = function() {
+            settingsDropdown.parentNode.removeChild(settingsDropdown);
+            settingsDropdown = null;
+        }
+
+        runSettings();
+    };
+    xhr.send();
+}
