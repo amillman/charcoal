@@ -80,7 +80,6 @@ function _showNewThemesOnboardingIfNeeded() {
 
             // dismiss via close button
             document.getElementById("charcoal_onboarding_go_button").onclick = function() {
-                onboardingDropdown.parentNode.removeChild(onboardingDropdown);
                 _openSettings();
             }
 
@@ -96,9 +95,9 @@ function _showNewThemesOnboardingIfNeeded() {
 function _openSettings() {
     if (settingsDropdown != null) { return; }
 
-    // remove any onboarding dropdowns if user presses settings button
+    // remove any onboarding dropdowns after the first
     let onboardingDropdowns = document.getElementsByClassName("charcoal_dropdown onboarding");
-    for (var i=0, dropdown; dropdown = onboardingDropdowns[i]; i++) {
+    for (var i=1, dropdown; dropdown = onboardingDropdowns[i]; i++) {
         dropdown.parentNode.removeChild(dropdown);
     }
 
@@ -107,14 +106,39 @@ function _openSettings() {
     xhr.onreadystatechange= function() {
         if (this.readyState!==4) return;
         if (this.status!==200) return; // or whatever error handling you want
-        _getCharcoalIcon().insertAdjacentHTML("afterend", `
-            <div class="charcoal_dropdown offset" id="charcoal_settings">
-                <div class="dropdown_container in_messenger_dropdown_container">
+
+        let dropdownInnerHTML = `
+            <div class="dropdown_container in_messenger_dropdown_container">
+                <div class="content_container">
                     ${this.responseText}
                     <div class="button" id="charcoal_settings_done_button">Done</div>
                 </div>
             </div>
-        `);
+        `;
+
+        var currentDropdown = document.getElementsByClassName("charcoal_dropdown")[0];
+        if (currentDropdown) {
+            let oldHeightContainer = document.getElementsByClassName("content_container")[0];
+            currentDropdown.style.height = `${oldHeightContainer.clientHeight}px`;
+
+            currentDropdown.setAttribute("id", "charcoal_settings");
+            currentDropdown.innerHTML = dropdownInnerHTML;
+
+            let newHeightContainer = document.getElementsByClassName("content_container")[0];
+            currentDropdown.style.height = `${newHeightContainer.clientHeight}px`;
+        } else {
+            _getCharcoalIcon().insertAdjacentHTML("afterend", `
+                <div class="charcoal_dropdown offset" id="charcoal_settings">
+                    ${dropdownInnerHTML}
+                </div>
+            `);
+
+            currentDropdown = document.getElementsByClassName("charcoal_dropdown")[0];
+            currentDropdown.style.height = `0px`;
+
+            let heightContainer = document.getElementsByClassName("content_container")[0];
+            currentDropdown.style.height = `${heightContainer.clientHeight}px`;
+        }
 
         settingsDropdown = document.getElementById("charcoal_settings");
 

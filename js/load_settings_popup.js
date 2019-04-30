@@ -4,7 +4,7 @@ xhr.onreadystatechange= function() {
     if (this.readyState!==4) return;
     if (this.status!==200) return;
     console.log(this);
-    document.getElementById("settings_popup_container").innerHTML = this.responseText;
+    document.getElementsByClassName("content_container")[0].insertAdjacentHTML("afterbegin", this.responseText);
 
     runSettings();
 };

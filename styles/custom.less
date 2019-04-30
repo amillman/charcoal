@@ -1,4 +1,5 @@
 @import (reference) "colors.less";
+@import (reference) "transitions.less";
 
 @theme-toggle-size:             16px;
 @theme-toggle-circle-padding:   4px;
@@ -66,6 +67,7 @@
   background-size: 100% auto;
   font-family: "Open Sans", Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
   display: flex;
+  .transition;
 
   &.offset {
     top: -18px;
@@ -97,15 +99,20 @@
   }
 
   .dropdown_container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
 
-    > * {
-      margin: 10px;
+    .content_container {
+      display: flex;
+      flex-direction: column;
 
-      &:not(:first-child) {
-        margin-top: 0px;
+      > * {
+        margin: 10px;
+
+        &:not(:first-child) {
+          margin-top: 0px;
+        }
       }
     }
 
@@ -207,7 +214,6 @@
   }
 
   .disclosure {
-    margin: 10px;
     color: rgba(0, 0, 0, 0.4);
     font-size: 12px;
     height: auto;

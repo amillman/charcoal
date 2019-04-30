@@ -1,0 +1,29 @@
+@transition-time:       0.3s;
+@long-transition-time:  0.6s;
+@spring-curve:          0.28, 1.45, 0.26, 0.99;
+@spring-animation-time: 0.55s;
+
+
+.transition {
+    -webkit-transition: all @transition-time ease;
+    -moz-transition: all @transition-time ease;
+    -o-transition: all @transition-time ease;
+    -ms-transition: all @transition-time ease;
+    transition: all @transition-time ease;
+}
+
+.spring-transition {
+    -webkit-transition: all @spring-animation-time cubic-bezier(@spring-curve);
+    -moz-transition: all @spring-animation-time cubic-bezier(@spring-curve);
+    -o-transition: all @spring-animation-time cubic-bezier(@spring-curve);
+    -ms-transition: all @spring-animation-time cubic-bezier(@spring-curve);
+    transition: all @spring-animation-time cubic-bezier(@spring-curve);
+}
+
+.transition-long {
+    -webkit-transition: all @long-transition-time ease;
+    -moz-transition: all @long-transition-time ease;
+    -o-transition: all @long-transition-time ease;
+    -ms-transition: all @long-transition-time ease;
+    transition: all @long-transition-time ease;
+}
