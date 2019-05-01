@@ -93,6 +93,8 @@ function _showNewThemesOnboardingIfNeeded() {
                     _transitionDropdown(null);
                 }
             });
+
+            updateOnboardingSeen(NEW_THEMES_ONBOARDING_KEY);
         };
         xhr.send();
     });

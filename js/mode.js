@@ -33,9 +33,9 @@ function updateStoredSettings(settings, callback) {
 
 function listenForSettingsUpdates(handler) {
     chrome.storage.onChanged.addListener(function(changes) {
-        let newSettings = changes[SETTINGS_KEY].newValue;
-        if (newSettings != null) {
-            handler(newSettings);
+        let settingsChanges = changes[SETTINGS_KEY];
+        if (settingsChanges && settingsChanges.newValue) {
+            handler(settingsChanges.newValue);
         }
     });
 }
@@ -45,6 +45,10 @@ function checkIfOnboardingNeeded(key, handler) {
         let hasSeenOnboarding = result[key];
         handler(hasSeenOnboarding == null || !hasSeenOnboarding);
     });
+}
+
+function updateOnboardingSeen(key) {
+    chrome.storage.sync.set({ [key]: true });
 }
 
 function themeClassName(mode) {
