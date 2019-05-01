@@ -106,6 +106,7 @@
     .content_container {
       display: flex;
       flex-direction: column;
+      position: relative;
 
       > * {
         margin: 10px;
@@ -130,6 +131,32 @@
         background-color: @m-dropdown-background;
         box-shadow: @m-bordered-shadow;
       }
+    }
+  }
+
+  @version-tag-height: 18px;
+  .version_tag {
+    line-height: @version-tag-height;
+    border-radius: @version-tag-height / 2;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: @messenger-blue;
+    color: white;
+    position: absolute;
+    margin: 7px!important;
+    padding-left: 5px;
+    padding-right: 5px;
+    right: 0;
+    top: 0;
+
+    .charcoal_theme & {
+      background-color: rgba(255,255, 255, 0.2);
+      color: @primary-text;
+    }
+
+    .midnight_theme & {
+      background-color: @m-primary-text;
+      color: @m-dropdown-background;
     }
   }
 

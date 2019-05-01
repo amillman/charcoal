@@ -84,6 +84,7 @@ function _showNewThemesOnboardingIfNeeded() {
             if (this.status!==200) return; // or whatever error handling you want
 
             _transitionDropdown(this.responseText, function() {
+                document.getElementsByClassName("version_tag")[0].textContent = `v${chrome.runtime.getManifest().version}`;
                 // dismiss via close button
                 document.getElementById("charcoal_onboarding_go_button").onclick = _openSettings;
 
@@ -132,7 +133,7 @@ let animationTime = 300;
 // if newContent is nil, animate the height to 0.
 // if the current dropdown does not exist, animate from height 0.
 // if it does, animate the height from the old content to new content.
-function _transitionDropdown(newContent, callback) {
+function _transitionDropdown(newContent, callback = function() {}) {
     if (newContent == null) {
         let currentDropDown = _getCurrentDropdown();
         if (currentDropDown) {
