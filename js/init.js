@@ -57,7 +57,7 @@ getStoredSettings(function(storedSettings) {
             charcoalIcon.setAttribute("style", `background-image:url('${settingsIconURL(settings)}')`);
         });
 
-        _showNewThemesOnboardingIfNeeded();
+        setTimeout(_showNewThemesOnboardingIfNeeded, 1000);
     }
 })
 
@@ -127,6 +127,7 @@ function _openSettings() {
     xhr.send();
 }
 
+let animationTime = 300;
 // transitions the dropdown to newContent.
 // if newContent is nil, animate the height to 0.
 // if the current dropdown does not exist, animate from height 0.
@@ -135,8 +136,11 @@ function _transitionDropdown(newContent, callback) {
     if (newContent == null) {
         let currentDropDown = _getCurrentDropdown();
         if (currentDropDown) {
-            currentDropDown.parentNode.removeChild(currentDropDown);
-            callback();
+            currentDropDown.style.height = `0px`;
+            setTimeout(function() {
+                currentDropDown.parentNode.removeChild(currentDropDown);
+                callback();
+            }, 300);
         }
         return;
     }
@@ -157,7 +161,7 @@ function _transitionDropdown(newContent, callback) {
             let contentContainer = document.getElementsByClassName("content_container")[0];
             _getCurrentDropdown().style.height = `${contentContainer.clientHeight}px`;
             callback();
-        }, 500);
+        }, animationTime + 200);
     } else {
         _getCharcoalIcon().insertAdjacentHTML("afterend", `
             <div class="charcoal_dropdown offset">
