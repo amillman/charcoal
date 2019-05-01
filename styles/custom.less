@@ -134,7 +134,8 @@
     }
   }
 
-  @version-tag-height: 18px;
+  @version-tag-height: 16px;
+  @horizontal-padding: 6px;
   .version_tag {
     line-height: @version-tag-height;
     border-radius: @version-tag-height / 2;
@@ -143,15 +144,15 @@
     background-color: @messenger-blue;
     color: white;
     position: absolute;
-    margin: 7px!important;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin: 6px!important;
+    padding-left: @horizontal-padding;
+    padding-right: @horizontal-padding;
     right: 0;
     top: 0;
 
     .charcoal_theme & {
-      background-color: rgba(255,255, 255, 0.2);
-      color: @primary-text;
+      background-color: @primary-text;
+      color: @dropdown-background;
     }
 
     .midnight_theme & {
@@ -162,7 +163,7 @@
 
   .header {
     text-align: center;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     color: @def-primary-text;
 
@@ -176,6 +177,7 @@
   }
 
   .body {
+    text-align: center;
     color: @def-primary-text;
     font-size: 14px;
 
