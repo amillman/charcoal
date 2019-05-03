@@ -276,6 +276,7 @@
   }
 }
 
+@setting-row-height: 44px;
 .settings_list {
   display: flex;
   flex-direction: column;
@@ -283,7 +284,7 @@
 
   .setting_row {
     display: flex;
-    height: 44px;
+    height: @setting-row-height;
 
     &.theme {
       padding: 0px 10px;
@@ -332,7 +333,6 @@
     overflow: hidden;
     position: relative;
     margin: 5px 0px;
-    border-radius: 5px;
 
     &.disabled {
       .setting_row {
@@ -345,24 +345,34 @@
     }
 
     .setting_row {
+      border-radius: @setting-row-height/2;
+
+      .in_messenger_dropdown_container & {
+        border: 1px solid rgba(0,0,0,0);
+
+        .charcoal_theme & {
+          border-color: @secondary-border;
+        }
+
+        .midnight_theme & {
+          border-color: @m-secondary-border;
+        }
+
+        .deepblue_theme & {
+          border-color: @db-secondary-border;
+        }
+      }
+
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+
       &:hover {
         cursor: pointer;
       }
-    }
 
-    .in_messenger_dropdown_container & {
-      border: 1px solid rgba(0,0,0,0);
-
-      .charcoal_theme & {
-        border-color: @secondary-border;
-      }
-
-      .midnight_theme & {
-        border-color: @m-secondary-border;
-      }
-
-      .deepblue_theme & {
-        border-color: @db-secondary-border;
+      .setting_name_label {
+        padding-left: @setting-row-height/2;
       }
     }
   }
