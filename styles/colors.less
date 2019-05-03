@@ -63,4 +63,31 @@
 @m-secondary-border:              rgba(255, 255, 255, 0.17);
 
 @m-light-shadow:                  0 1px 10px rgba(255, 255, 255, 0.12);
-@m-bordered-shadow:               0 0 0 1px @secondary-border, @light-shadow;
+@m-bordered-shadow:               0 0 0 1px @m-secondary-border, @m-light-shadow;
+
+/* -------------- DEEP BLUE THEME -------------- */
+
+@db-screen-background:             #1f2b38;
+@db-dropdown-background:           shade(@db-screen-background, 5%);
+@db-reactions-background:          tint(@db-screen-background, 15%);
+
+@db-messenger-blue-brightness:     100%;
+@db-chat-theme-brightness:         95%;
+
+@db-other-message-background:      tint(@db-screen-background, 8%);
+
+@db-primary-text:                  #e4e4e4;
+@db-secondary-text:                fade(white, 35%);
+@db-link-text:                     tint(@messenger-blue, 20%);
+
+@db-other-message-text:            #e0e0e0;
+@db-me-message-text:               fade(white, 85%);
+
+@db-highlighted:                   fade(black, 20%);
+@db-hover:                         fade(black, 10%);
+
+@db-primary-border:                fade(black, 22%);
+@db-secondary-border:              fade(black, 22%);
+
+@db-light-shadow:                  0 1px 10px rgba(0, 0, 0, 0.15);
+@db-bordered-shadow:               0 0 0 1px @db-secondary-border, @db-light-shadow;

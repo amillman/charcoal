@@ -34,7 +34,7 @@
     cursor: pointer;
   }
 
-  .charcoal_theme & {
+  .charcoal_theme &, .deepblue_theme & {
     &:after {
       content: "";
       display: block;
@@ -131,6 +131,11 @@
         background-color: @m-dropdown-background;
         box-shadow: @m-bordered-shadow;
       }
+
+      .deepblue_theme & {
+        background-color: @db-dropdown-background;
+        box-shadow: @db-bordered-shadow;
+      }
     }
   }
 
@@ -159,6 +164,11 @@
       background-color: @m-primary-text;
       color: @m-dropdown-background;
     }
+
+    .deepblue_theme & {
+      background-color: @db-primary-text;
+      color: @db-dropdown-background;
+    }
   }
 
   .header {
@@ -174,6 +184,10 @@
     .midnight_theme & {
       color: @m-primary-text;
     }
+
+    .deepblue_theme & {
+      color: @db-primary-text;
+    }
   }
 
   .body {
@@ -187,6 +201,10 @@
 
     .midnight_theme & {
       color: @m-primary-text;
+    }
+
+    .deepblue_theme & {
+      color: @db-primary-text;
     }
   }
 
@@ -219,6 +237,11 @@
       color: @m-dropdown-background;
     }
 
+    .deepblue_theme & {
+      background-color: rgba(0, 0, 0, 0.26);
+      color: @db-primary-text;
+    }
+
     &.secondary {
       background: none;
       color: @messenger-blue;
@@ -229,6 +252,10 @@
 
       .midnight_theme & {
         color: @m-primary-text;
+      }
+
+      .deepblue_theme & {
+        color: @db-primary-text;
       }
     }
 
@@ -270,6 +297,11 @@
     &.midnight_theme {
       background-color: @m-screen-background;
       color: @m-primary-text;
+    }
+
+    &.deepblue_theme {
+      background-color: @db-screen-background;
+      color: @db-primary-text;
     }
 
     .setting_name_label {
@@ -327,6 +359,10 @@
 
       .midnight_theme & {
         border-color: @m-secondary-border;
+      }
+
+      .deepblue_theme & {
+        border-color: @db-secondary-border;
       }
     }
   }

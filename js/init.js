@@ -49,7 +49,7 @@ getStoredSettings(function(storedSettings) {
             console.log(`External update settings: enabled=${newSettings.isEnabled}, preferredTheme=${newSettings.preferredTheme}`);
 
             settings = newSettings;
-            document.documentElement.classList.remove(themeClassName(CHARCOAL_MODE), themeClassName(MIDNIGHT_MODE));
+            document.documentElement.classList.remove(themeClassName(CHARCOAL_MODE), themeClassName(MIDNIGHT_MODE), themeClassName(DEEPBLUE_MODE));
             if (settings.isEnabled) {
                 document.documentElement.classList.add(themeClassName(settings.preferredTheme));
             }

@@ -17,12 +17,15 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._1ht3 ._1htf, ._5i_d .__6k, ._2c9i ._19jt,
 ._4ng2, ._374c, ._5i_d .__6l, ._aou, ._koh li,
 ._2i-c ._54nf ._54nh, ._3q34, ._3cn0, ._205d ._3cnp,
-._1n-e._36zg, ._14-9, ._5qd5 ._5qcq {
+._1n-e._36zg, ._14-9, ._5qd5 ._5qcq, ._2kt ._3xsd {
   .charcoal_theme & {
     color: @primary-text;
   }
   .midnight_theme & {
     color: @m-primary-text;
+  }
+  .deepblue_theme & {
+    color: @db-primary-text;
   }
 }
 
@@ -34,6 +37,9 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
   }
   .midnight_theme & {
     color: @m-primary-text!important;
+  }
+  .deepblue_theme & {
+    color: @db-primary-text!important;
   }
 }
 
@@ -52,6 +58,9 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
   .midnight_theme & {
     color: @m-secondary-text;
   }
+  .deepblue_theme & {
+    color: @db-secondary-text;
+  }
 }
 
 // specific overrides
@@ -64,6 +73,9 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
   .midnight_theme & {
     color: @m-secondary-text!important;
   }
+  .deepblue_theme & {
+    color: @db-secondary-text!important;
+  }
 }
 
 // link
@@ -74,11 +86,14 @@ a {
   .midnight_theme & {
     color: @m-link-text;
   }
+  .deepblue_theme & {
+    color: @db-link-text;
+  }
 }
 
 // undread message timestamp
 ._1ht3 ._1ht7 {
-  .charcoal_theme &, .midnight_theme & {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     color: @messenger-blue;
   }
 }
@@ -87,9 +102,15 @@ a {
 ._hh7, ._hh7 a {
   .charcoal_theme & {
     color: @other-message-text;
+    -webkit-font-smoothing: auto;
   }
   .midnight_theme & {
     color: @m-other-message-text;
+    -webkit-font-smoothing: auto;
+  }
+  .deepblue_theme & {
+    color: @db-other-message-text;
+    -webkit-font-smoothing: auto;
   }
 }
 
@@ -103,6 +124,10 @@ a {
     color: @m-me-message-text;
     -webkit-font-smoothing: auto;
   }
+  .deepblue_theme & {
+    color: @db-me-message-text;
+    -webkit-font-smoothing: auto;
+  }
 }
 
 // original message in reply by me
@@ -112,6 +137,9 @@ a {
   }
   .midnight_theme & {
     color: fade(@m-me-message-text, 90%);
+  }
+  .deepblue_theme & {
+    color: fade(@db-me-message-text, 80%);
   }
 }
 
@@ -123,18 +151,21 @@ a {
   .midnight_theme & {
     color: @m-me-message-text;
   }
+  .deepblue_theme & {
+    color: @db-me-message-text;
+  }
 }
 
 // search result highlight color in message
  .__in {
-  .charcoal_theme &, .midnight_theme & {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     color: black;
   }
  }
 
  // record button for microphone
  ._3z56 {
-  .charcoal_theme &, .midnight_theme & {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     color: white;
   }
  }
@@ -151,6 +182,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background-color: @m-screen-background!important;
   }
+  .deepblue_theme & {
+    background-color: @db-screen-background!important;
+  }
 }
 
 // message by someone else
@@ -163,6 +197,10 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
     background-color: @m-other-message-background;
   }
 
+  .deepblue_theme & {
+    background-color: @db-other-message-background;
+  }
+
   &:hover {
     .charcoal_theme & {
       background-color: @other-message-background;
@@ -170,6 +208,10 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
     .midnight_theme & {
       background-color: @m-other-message-background;
+    }
+
+    .deepblue_theme & {
+      background-color: @db-other-message-background;
     }
   }
 
@@ -181,12 +223,16 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
     .midnight_theme & {
       background-color: lighten(@m-other-message-background, 3%);
     }
+
+    .deepblue_theme & {
+      background-color: lighten(@db-other-message-background, 3%);
+    }
   }
 }
 
 // override hovers on my messages if no theme set
 ._nd_ ._3058._s1-._4k7c:hover, ._3erg ._4k7c:hover, ._nd_ ._hh7, ._nd_ ._hh7:hover {
-  .charcoal_theme &, .midnight_theme &, {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     background-color: @messenger-blue;
   }
 }
@@ -194,7 +240,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 // preserve clear backgrounds {
 ._hh7._6ybn._2f5r, ._hh7._6ybn:active._2f5r, ._-5k ._hh7._6ybn._2f5r,
 ._6q1a ._hh7._6ybn._2f5r, ._6q1a ._hh7._6ybn:active._2f5r, ._6q1a ._-5k ._hh7._6ybn._2f5r {
-  .charcoal_theme &, .midnight_theme &, {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     background: none;
   }
 }
@@ -208,6 +254,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background-color: @m-dropdown-background!important;
   }
+  .deepblue_theme & {
+    background-color: @db-dropdown-background!important;
+  }
 }
 
 // modal overlay
@@ -218,6 +267,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background-color: rgba(70, 70, 70, 0.4);
   }
+  .deepblue_theme & {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 }
 
 // search input
@@ -227,6 +279,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
   .midnight_theme & {
     background-color: rgba(255, 255, 255, 0.09)!important;
+  }
+  .deepblue_theme & {
+    background-color: rgba(0, 0, 0, 0.12)!important;
   }
 }
 
@@ -240,6 +295,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background-color: @m-reactions-background!important;
   }
+  .deepblue_theme & {
+    background-color: @db-reactions-background!important;
+  }
 }
 
 // sectioned header
@@ -249,6 +307,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
   .midnight_theme & {
     background-color: rgba(255, 255, 255, 0.07);
+  }
+  .deepblue_theme & {
+    background-color: rgba(0, 0, 0, 0.09);
   }
 }
 
@@ -263,16 +324,22 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
     .midnight_theme & {
       filter: brightness(@m-chat-theme-brightness);
     }
+    .deepblue_theme & {
+      filter: brightness(@db-chat-theme-brightness);
+    }
 }
 
 ._2oc8, ._2fug, ._4eby ._5ixy, ._3quh, ._1ht3 ._1ht7, ._-19._b-u, ._-19._b-v,
 .sp_3MZ0xziO-l7_2x.sx_424f45 {
   .charcoal_theme & {
-      filter: brightness(@messenger-blue-brightness);
-    }
-    .midnight_theme & {
-      filter: brightness(@m-messenger-blue-brightness);
-    }
+    filter: brightness(@messenger-blue-brightness);
+  }
+  .midnight_theme & {
+    filter: brightness(@m-messenger-blue-brightness);
+  }
+  .deepblue_theme & {
+    filter: brightness(@db-messenger-blue-brightness);
+  }
 }
 
 /* -------------- BORDER COLORS -------------- */
@@ -283,6 +350,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
   .midnight_theme & {
     border-color: @m-primary-border!important;
+  }
+  .deepblue_theme & {
+    border-color: @db-primary-border!important;
   }
 }
 
@@ -300,6 +370,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     border-color: @m-secondary-border!important;
   }
+  .deepblue_theme & {
+    border-color: @db-secondary-border!important;
+  }
 }
 
 // match border with screen
@@ -309,6 +382,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
   .midnight_theme & {
     border-color: @m-screen-background!important;
+  }
+  .deepblue_theme & {
+    border-color: @db-screen-background!important;
   }
 }
 
@@ -320,6 +396,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     border-color: @m-dropdown-background!important;
   }
+  .deepblue_theme & {
+    border-color: @db-dropdown-background!important;
+  }
 }
 
 // separator in stickers dropdown
@@ -329,6 +408,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
   .midnight_theme & {
     background-color: @m-secondary-border!important;
+  }
+  .deepblue_theme & {
+    background-color: @db-secondary-border!important;
   }
 }
 
@@ -341,6 +423,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background-color: @m-highlighted!important;
   }
+  .deepblue_theme & {
+    background-color: @db-highlighted!important;
+  }
 }
 
 // unread conversation row
@@ -351,6 +436,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
     }
     .midnight_theme & {
       background-color: @m-highlighted!important;
+    }
+    .deepblue_theme & {
+      background-color: @db-highlighted!important;
     }
   }
 }
@@ -363,11 +451,14 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background-color: @m-hover!important;
   }
+  .deepblue_theme & {
+    background-color: @db-hover!important;
+  }
 }
 
 // dropdown items hover override
 ._2i-c ._54ne ._54nh, ._2i-c ._54ne ._54nc {
-  .charcoal_theme &, .midnight_theme & {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     background: none!important;
   }
 }
@@ -377,9 +468,13 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 // generic
 ._23ct, .sp_DRWiQpFHw7f_2x.sx_d9163c, .sp_DRWiQpFHw7f_2x.sx_10c893,
 ._uwb ._uwa, ._nd_ ._2uf5, .sp_nKFWmcbA0s9_2x.sx_9cf94f, ._2t5t,
-.sp_nKFWmcbA0s9_2x.sx_573f36, ._57gs, ._1vr2._22mn, .sp_nKFWmcbA0s9_2x.sx_f988d8 {
+.sp_nKFWmcbA0s9_2x.sx_573f36, ._57gs, ._1vr2._22mn, .sp_nKFWmcbA0s9_2x.sx_f988d8,
+.sp_nKFWmcbA0s9_2x.sx_5d0558 {
   .charcoal_theme &, .midnight_theme & {
     filter: invert(100%)!important;
+  }
+  .deepblue_theme & {
+    filter: brightness(0) invert(70%);
   }
 }
 
@@ -388,6 +483,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 .sp_DRWiQpFHw7f_2x.sx_4ec8db, ._5iwm ._58ak::before {
   .charcoal_theme &, .midnight_theme & {
     filter: brightness(0) invert(50%);
+  }
+  .deepblue_theme & {
+    filter: brightness(0) invert(70%);
   }
 }
 
@@ -400,6 +498,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     filter: invert(95%);
   }
+  .deepblue_theme & {
+    display: none;
+  }
 }
 
 // message action icons
@@ -408,6 +509,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 .sp_cNa2AaF_wTk_2x.sx_b4d522, .sp_nKFWmcbA0s9_2x.sx_c471f2, {
   .charcoal_theme &, .midnight_theme & {
     filter: brightness(0) invert(40%);
+  }
+  .deepblue_theme & {
+    filter: brightness(0) invert(70%);
   }
 }
 
@@ -418,12 +522,20 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .charcoal_theme &, .midnight_theme & {
     filter: invert(100%);
   }
+
+  .deepblue_theme & {
+    filter: brightness(0) invert(60%);
+  }
 }
 
 // message action (remove, delete message) iOS-style dropdown
 ._hw2 ._53io {
   .charcoal_theme & {
     filter: invert(13%);
+  }
+
+  .midnight_theme & {
+    filter: invert(7%);
   }
 
   .midnight_theme & {
@@ -440,6 +552,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     box-shadow: @m-bordered-shadow!important;
   }
+  .deepblue_theme & {
+    box-shadow: @db-bordered-shadow!important;
+  }
 }
 
 ._3mts .uiScrollableArea.contentAfter:after,
@@ -451,19 +566,23 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   .midnight_theme & {
     background: linear-gradient(rgba(0,0,0,0), @m-dropdown-background)!important;
   }
+
+  .deepblue_theme & {
+    background: linear-gradient(rgba(0,0,0,0), @db-dropdown-background)!important;
+  }
 }
 
 /* -------------- MISC. -------------- */
 ._2pgc, ._558b ._54nc, ._29_7 ._3058._s1-._6e6n,
 ._3erg ._4k7c, ._nd_ ._3058._s1-._4k7c, ._29_7 ._3058._s1-._4k7c {
-  .charcoal_theme &, .midnight_theme & {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     border: none!important;
   }
 }
 
 // bold undread timestamp, name in info bar
 ._1ht3 ._1ht7, ._6ybk {
-  .charcoal_theme &, .midnight_theme & {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     font-weight: bold;
   }
 }

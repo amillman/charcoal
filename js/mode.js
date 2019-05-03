@@ -4,6 +4,7 @@ let SETTINGS_KEY = "settings"
 let DEFAULT_MODE = "default"
 let CHARCOAL_MODE = "charcoal"
 let MIDNIGHT_MODE = "midnight"
+let DEEPBLUE_MODE = "deepblue"
 
 // onboarding / education
 let NEW_THEMES_ONBOARDING_KEY = "NEW_THEMES_ONBOARDING_KEY"
@@ -56,6 +57,8 @@ function themeClassName(mode) {
         return "charcoal_theme"
     } else if (mode == MIDNIGHT_MODE) {
         return "midnight_theme"
+    } else if (mode == DEEPBLUE_MODE) {
+        return "deepblue_theme"
     }
 }
 
@@ -72,6 +75,8 @@ function themeIconURL(theme) {
         return chrome.extension.getURL("assets/charcoal-messenger.svg");
     } else if (theme == MIDNIGHT_MODE) {
         return chrome.extension.getURL("assets/midnight-messenger.svg");
+    } else if (theme == DEEPBLUE_MODE) {
+        return chrome.extension.getURL("assets/deepblue-messenger.svg");
     }
 }
 
