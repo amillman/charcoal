@@ -260,6 +260,12 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
+._hw2 ._53ij {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
+    background-color: fade(white, 10%)!important;
+  }
+}
+
 // modal overlay
 ._4-hy ._3ixn {
   .charcoal_theme & {
@@ -534,16 +540,9 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 // message action (remove, delete message) iOS-style dropdown
 ._hw2 ._53io {
-  .charcoal_theme & {
-    filter: invert(13%);
-  }
-
-  .midnight_theme & {
-    filter: invert(7%);
-  }
-
-  .midnight_theme & {
-    filter: invert(7%);
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
+    filter: brightness(0) invert(1);
+    opacity: 0.10;
   }
 }
 
