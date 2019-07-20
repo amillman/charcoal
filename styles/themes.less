@@ -18,7 +18,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._4ng2, ._374c, ._5i_d .__6l, ._aou, ._koh li,
 ._2i-c ._54nf ._54nh, ._3q34, ._3cn0, ._205d ._3cnp,
 ._1n-e._36zg, ._14-9, ._5qd5 ._5qcq, ._2kt ._3xsd, ._3wb0,
-._3wa-, ._3waw {
+._3wa-, ._3waw, ._3eur._6ybk a, {
   .charcoal_theme & {
     color: @primary-text;
   }
@@ -33,7 +33,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 // specific overrides
 ._koh li:not(.selected), ._39r6, ._3z53, ._4lhd, ._5jn1, ._3b4u,
 ._1mr_, ._1mq-, ._1jx6, ._5fbv, .__6k, .__6l, .uiInputLabel .__rm+.uiInputLabelLabel,
-._8jc, ._2n9x, ._1-sz::before {
+._8jc, ._2n9x, ._1-sz::before, ._6ct8._6y58 {
   .charcoal_theme & {
     color: @primary-text!important;
   }
@@ -53,7 +53,8 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
 ._3q35, ._7s4e, ._50cx, ._3cnl, ._3cnn a, ._3cnj, ._6cs7,
 ._1n-e, ._29_7 ._6e6n ._pye, ._1nc7 ._6e6n ._pye,
 ._1nc7 ._pye, ._1nc6 ._pye, ._hh7 ._pye, ._3x6v, .__6m,
-._2mjl, ._5qd5 ._5qco, ._3wan, {
+._2mjl, ._5qd5 ._5qco, ._3wan, ._kmc._7kpg ._1p1t, ._1lj0._6ybm,
+._225b._6ybl {
   .charcoal_theme & {
     color: @secondary-text;
   }
@@ -65,10 +66,22 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea,
   }
 }
 
+._kmc._7kpg ._1p1t {
+  .charcoal_theme & {
+    -webkit-text-fill-color: @secondary-text;
+  }
+  .midnight_theme & {
+    -webkit-text-fill-color: @m-secondary-text;
+  }
+  .deepblue_theme & {
+    -webkit-text-fill-color: @db-secondary-text;
+  }
+}
+
 // specific overrides
 ._58al::placeholder, ._39r7, ._1-sv,
 ._1-sy ._1-sz::before, ._ipw._1c9h ._1-sz::before,
-._4lh7, ._682i, ._2d0c, ._558b ._54nc, ._8jd, ._2n9y {
+._4lh7, ._682i, ._2d0c, ._558b ._54nc, ._8jd, ._2n9y, {
   .charcoal_theme & {
     color: @secondary-text!important;
   }
@@ -94,7 +107,7 @@ a {
 }
 
 // undread message timestamp, action button text
-._1ht3 ._1ht7, ._3wat {
+._3wat, ._1ht3 ._1ht7._6zkh {
   .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     color: @messenger-blue;
   }
@@ -177,7 +190,8 @@ a {
 // main background
 body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._2f5n, html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
-._2-x5, ._585r, ._7jxv, ._4_j4 .chatAttachmentShelf, ._3nta {
+._2-x5, ._585r, ._7jxv, ._4_j4 .chatAttachmentShelf, ._3nta,
+._5irm._7mkm {
   .charcoal_theme & {
     background-color: @screen-background!important;
   }
@@ -247,6 +261,17 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
+._7kpk, ._7-_v, ._6-xp, ._6ymu {
+  .charcoal_theme & {
+    background-color: @input-container-background!important;
+  }
+  .midnight_theme & {
+    background-color: @m-input-container-background!important;
+  }
+  .deepblue_theme & {
+    background-color: @db-input-container-background!important;
+  }
+}
 
 ._558b ._54ng, ._2y8_, ._49no, ._53ij, ._2z8r,
 ._4lh2, ._3rh0, ._10sf, ._29hl._13iv, ._4wzs {
@@ -378,7 +403,21 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._4lh2, ._1xd3, ._2d01, ._3cnp, ._10sf, ._1wc4, ._30e7 ._5j5f,
 ._2m5p, ._3b4t, ._4coo, ._1jx4, ._2zl5, ._3g_j ._58an,
 ._4_j4 .chatAttachmentShelf, ._3nta, ._5qd9, ._3wb1, ._3war,
-._3wax, ._3way, ._4wzs {
+._3wax, ._3way, ._4wzs, ._67tu {
+  .charcoal_theme & {
+    border-color: @secondary-border!important;
+  }
+  .midnight_theme & {
+    border-color: @m-secondary-border!important;
+  }
+  .deepblue_theme & {
+    border-color: @db-secondary-border!important;
+  }
+}
+
+._6ynl {
+  border-bottom: 1px solid white!important;
+
   .charcoal_theme & {
     border-color: @secondary-border!important;
   }
@@ -391,7 +430,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 }
 
 // match border with screen
-._4mnq {
+._4mnq, ._849n, ._7q1i, ._7q0v {
   .charcoal_theme & {
     border-color: @screen-background!important;
   }
@@ -402,6 +441,18 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
     border-color: @db-screen-background!important;
   }
 }
+
+// ._2poz._ui9._576q rect {
+//   .charcoal_theme & {
+//     fill: @screen-background!important;
+//   }
+//   .midnight_theme & {
+//     fill: @m-screen-background!important;
+//   }
+//   .deepblue_theme & {
+//     fill: @db-screen-background!important;
+//   }
+// }
 
 // match border with dropdown
 ._1mq_ ._4mnq {
@@ -458,8 +509,8 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
-._1ht1:hover, ._1ht1._1ht2, ._682j:hover, ._5l37:hover, ._5l37:active, ._1k1p,
-._2i-c ._54ne, ._1liy ._1lj0:hover, {
+._682j:hover, ._5l37:hover, ._5l37:active, ._1k1p,
+._2i-c ._54ne, ._1liy ._1lj0:hover, ._1ht1._1ht2 ._6zkc {
   .charcoal_theme & {
     background-color: @hover!important;
   }
@@ -472,7 +523,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 }
 
 // dropdown items hover override
-._2i-c ._54ne ._54nh, ._2i-c ._54ne ._54nc {
+._2i-c ._54ne ._54nh, ._2i-c ._54ne ._54nc, ._7mki {
   .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
     background: none!important;
   }
@@ -485,7 +536,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 ._uwb ._uwa, ._nd_ ._2uf5, .sp_nKFWmcbA0s9_2x.sx_9cf94f, ._2t5t,
 .sp_nKFWmcbA0s9_2x.sx_573f36, ._57gs, ._1vr2._22mn, .sp_nKFWmcbA0s9_2x.sx_f988d8,
 .sp_nKFWmcbA0s9_2x.sx_5d0558, .sp_sbxFxdCZjuj_2x.sx_58e14b, .sp_sbxFxdCZjuj_2x.sx_3f1bdb,
-.sp_sbxFxdCZjuj_2x.sx_760555 {
+.sp_sbxFxdCZjuj_2x.sx_760555, ._2u_d._7i2j svg, {
   .charcoal_theme &, .midnight_theme & {
     filter: invert(100%)!important;
   }
@@ -497,12 +548,13 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 // standard light gray icons
 ._4-0h, ._1lj1, ._50-1._50z-, .sp_DRWiQpFHw7f_2x.sx_d0c224,
-.sp_DRWiQpFHw7f_2x.sx_4ec8db, ._5iwm ._58ak::before, ._4-0h:active, ._4-0h._4-0i {
+.sp_DRWiQpFHw7f_2x.sx_4ec8db, ._5iwm ._58ak::before, ._4-0h:active, ._4-0h._4-0i,
+._2u_d._7i2j ._7iov svg, ._6-xp svg, ._3d85 svg, ._6ymu svg {
   .charcoal_theme &, .midnight_theme & {
-    filter: brightness(0) invert(50%);
+    filter: brightness(0) invert(50%)!important;
   }
   .deepblue_theme & {
-    filter: brightness(0) invert(70%);
+    filter: brightness(0) invert(70%)!important;
   }
 }
 
