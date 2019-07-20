@@ -13,7 +13,7 @@ getStoredSettings(function(storedSettings) {
 
     window.onload = function() {
         // add settings button
-        let settingsIcon = document.getElementsByClassName("_4kzu")[0];
+        let settingsIcon = document.getElementsByClassName("_7sta _7stb _87u_")[0];
         settingsIcon.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_wrapper">
                 <div class="charcoal_toggle" style="background-image:url('${settingsIconURL(settings)}')""></div>

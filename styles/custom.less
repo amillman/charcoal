@@ -18,8 +18,20 @@
   height: @theme-toggle-size;
   position: fixed;
   z-index: 999;
-  top: 7px;
+  top: 0px;
   left: 40px;
+  border-radius: 50%;
+  padding: 5px;
+
+   .charcoal_theme & {
+      background-color: @screen-background;
+    }
+    .midnight_theme & {
+      background-color: @m-screen-background;
+    }
+    .deepblue_theme & {
+      background-color: @db-screen-background;
+    }
 }
 
 .charcoal_toggle {
@@ -346,7 +358,7 @@
     }
 
     .setting_row {
-      border-radius: @setting-row-height/2;
+      border-radius: 10px;
 
       .in_messenger_dropdown_container & {
         border: 1px solid rgba(0,0,0,0);
