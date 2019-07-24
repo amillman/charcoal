@@ -3,7 +3,7 @@
   "name": "Charcoal: Dark Mode for Messenger",
   "short_name": "Charcoal",
   "description": "Unofficial Messenger dark mode. Easily swap between dark and light mode.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "icons": {
     "128": "assets/icon@128.png"
   },
