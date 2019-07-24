@@ -13,8 +13,12 @@ getStoredSettings(function(storedSettings) {
 
     window.onload = function() {
         // add settings button
-        let settingsIcon = document.getElementsByClassName("_7sta _7stb _87u_")[0];
-        settingsIcon.insertAdjacentHTML("afterend", `
+        var topLeftIcon = document.getElementsByClassName("_4kzu")[0]; // Old style settings icon
+        if (topLeftIcon == null) {
+            topLeftIcon = document.getElementsByClassName("_7sta _7stb _87u_")[0]; // New style profile image
+        }
+
+        topLeftIcon.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_wrapper">
                 <div class="charcoal_toggle" style="background-image:url('${settingsIconURL(settings)}')""></div>
             </div>
