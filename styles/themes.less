@@ -189,9 +189,9 @@ a {
 
 // main background
 body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
-._2f5n, html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
+html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
 ._2-x5, ._585r, ._7jxv, ._4_j4 .chatAttachmentShelf, ._3nta,
-._5irm._7mkm, ._7t1o {
+._5irm._7mkm, ._7t1o, {
   .charcoal_theme & {
     background-color: @screen-background!important;
   }
@@ -217,7 +217,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 }
 
 // message by someone else
-._hh7, ._29_7 ._3058._s1-._6e6n, {
+._hh7, ._29_7 ._3058._s1-._6e6n, .__6j._43kk {
   .charcoal_theme & {
     background-color: @other-message-background;
   }
@@ -410,7 +410,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 
 ._5i_d, ._4rv3, ._1li-, ._673w, ._4p9w ._36ic, ._36ic,
 ._2c9i ._4ebz, ._374b, ._4_j5, ._33p7, ._558b ._54ng,
-._koh, ._2f5n, ._2i-c ._54nf ._54ak, ._4jgt, ._2y8y,
+._koh, ._2i-c ._54nf ._54ak, ._4jgt, ._2y8y,
 ._5r8e, ._37wv, ._37wu, ._5r86, ._1pka ._49no, ._1pka ._2abm,
 ._1pka ._5exl, ._49no, ._2abm, ._5exl, ._4uvi, html ._55r1,
 ._4lh2, ._1xd3, ._2d01, ._3cnp, ._10sf, ._1wc4, ._30e7 ._5j5f,
@@ -443,7 +443,7 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
 }
 
 // match border with screen
-._4mnq, ._849n, ._7q1i, ._7q0v, ._7q1l, ._7q1n {
+._4mnq, ._849n, ._7q1i, ._7q0v, ._7q1l, ._7q1n, {
   .charcoal_theme & {
     border-color: @screen-background!important;
   }
@@ -455,17 +455,18 @@ body, ._4sp8, ._59s7, ._4eby, ._33p7, ._4gd0, ._4jgp ._4jgu,
   }
 }
 
-// ._2poz._ui9._576q rect {
-//   .charcoal_theme & {
-//     fill: @screen-background!important;
-//   }
-//   .midnight_theme & {
-//     fill: @m-screen-background!important;
-//   }
-//   .deepblue_theme & {
-//     fill: @db-screen-background!important;
-//   }
-// }
+// match border with other message
+.__6j._43kk {
+  .charcoal_theme & {
+    border-color: @other-message-background!important;
+  }
+  .midnight_theme & {
+    border-color: @other-message-background!important;
+  }
+  .deepblue_theme & {
+    border-color: @other-message-background!important;
+  }
+}
 
 // match border with dropdown
 ._1mq_ ._4mnq {
