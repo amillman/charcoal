@@ -274,7 +274,7 @@ html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
   }
 }
 
-._7kpk, ._7-_v, ._6-xp, ._6ymu, ._6ybv, ._6y56 {
+._7kpk, ._7-_v, ._6-xp, ._6ymu, ._6ybv, ._6y56, ._6ybz, ._7hu0, ._7hu1, ._7hty, {
   .charcoal_theme & {
     background-color: @input-container-background!important;
   }
@@ -416,21 +416,7 @@ html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
 ._4lh2, ._1xd3, ._2d01, ._3cnp, ._10sf, ._1wc4, ._30e7 ._5j5f,
 ._2m5p, ._3b4t, ._4coo, ._1jx4, ._2zl5, ._3g_j ._58an,
 ._4_j4 .chatAttachmentShelf, ._3nta, ._5qd9, ._3wb1, ._3war,
-._3wax, ._3way, ._4wzs, ._67tu {
-  .charcoal_theme & {
-    border-color: @secondary-border!important;
-  }
-  .midnight_theme & {
-    border-color: @m-secondary-border!important;
-  }
-  .deepblue_theme & {
-    border-color: @db-secondary-border!important;
-  }
-}
-
-._6ynl {
-  border-bottom: 1px solid white!important;
-
+._3wax, ._3way, ._4wzs, ._67tu, ._3_e8._7slg::before, ._673w._6ynl::after {
   .charcoal_theme & {
     border-color: @secondary-border!important;
   }
@@ -563,7 +549,8 @@ html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
 // standard light gray icons
 ._4-0h, ._1lj1, ._50-1._50z-, .sp_DRWiQpFHw7f_2x.sx_d0c224,
 .sp_DRWiQpFHw7f_2x.sx_4ec8db, ._5iwm ._58ak::before, ._4-0h:active, ._4-0h._4-0i,
-._2u_d._7i2j ._7iov svg, ._6-xp svg, ._3d85 svg, ._6ymu svg, ._6ybv svg, ._6y56 svg {
+._2u_d._7i2j ._7iov svg, ._6-xp svg, ._3d85 svg, ._6ymu svg, ._6ybv svg, ._6y56 svg,
+._6ybz svg, ._7hu0 svg, ._7hu1 svg, ._7hty svg, {
   .charcoal_theme &, .midnight_theme & {
     filter: brightness(0) invert(50%)!important;
   }
@@ -651,6 +638,28 @@ html ._55r1, ._30h0, ._682j, ._3u69, ._3s-4, ._2zl5,
 }
 
 /* -------------- MISC. -------------- */
+// scrolling chat list border from left navbar
+._3_e8._7slg::before {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
+    box-shadow: none!important;
+    border: 1px solid white;
+    height: 9px!important;
+  }
+}
+
+// bottom border for right navbar
+._673w._6ynl::after {
+  .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
+    height: 0px;
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    border-bottom: 1px solid white;
+  }
+}
+
 ._2pgc, ._558b ._54nc, ._29_7 ._3058._s1-._6e6n,
 ._3erg ._4k7c, ._nd_ ._3058._s1-._4k7c, ._29_7 ._3058._s1-._4k7c {
   .charcoal_theme &, .midnight_theme &, .deepblue_theme & {
