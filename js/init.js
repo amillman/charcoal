@@ -11,11 +11,17 @@ getStoredSettings(function(storedSettings) {
         document.documentElement.classList.add(themeClassName(settings.preferredTheme));
     }
 
-    window.onload = function() {
+    let tryInit = function() {
         // add settings button
         var topLeftIcon = document.getElementsByClassName("_4kzu")[0]; // Old style settings icon
         if (topLeftIcon == null) {
             topLeftIcon = document.getElementsByClassName("_7sta _7stb _87u_")[0]; // New style profile image
+        }
+
+        if (topLeftIcon == null) {
+            console.log("Failed init, retrying");
+            setTimeout(tryInit, 1000);
+            return;
         }
 
         topLeftIcon.insertAdjacentHTML("afterend", `
@@ -63,6 +69,8 @@ getStoredSettings(function(storedSettings) {
 
         setTimeout(_showNewThemesOnboardingIfNeeded, 1000);
     }
+
+    window.onload = tryInit;
 })
 
 function _getCharcoalIcon() {
