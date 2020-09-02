@@ -15,7 +15,7 @@ getStoredSettings(function(storedSettings) {
         // add settings button
         var topLeftIcon = document.getElementsByClassName("_4kzu")[0]; // Old style settings icon
         if (topLeftIcon == null) {
-            topLeftIcon = document.getElementsByClassName("_7sta _7stb _87u_")[0]; // New style profile image
+            topLeftIcon = document.getElementsByClassName("_150g uiPopover _6a _6b")[0]; // New style profile image
         }
 
         if (topLeftIcon == null) {
