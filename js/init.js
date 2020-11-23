@@ -11,7 +11,7 @@ getStoredSettings(function(storedSettings) {
         document.documentElement.classList.add(themeClassName(settings.preferredTheme));
     }
 
-    let tryInit = function() {
+    let tryInit = function(retriesLeft) {
         // add settings button
         var topLeftIcon = document.getElementsByClassName("_4kzu")[0]; // Old style settings icon
         if (topLeftIcon == null) {
@@ -19,10 +19,26 @@ getStoredSettings(function(storedSettings) {
         }
 
         if (topLeftIcon == null) {
-            console.log("Failed init, retrying");
-            setTimeout(tryInit, 1000);
+            topLeftIcon = document.getElementsByClassName("rek2kq2y")[0]; // v2 UI
+        }
+
+        if (topLeftIcon == null) {
+            if (retriesLeft > 0) {
+                console.log("Failed init, retrying");
+                setTimeout(function() { tryInit(retriesLeft - 1) }, 1000);
+                return;
+            } else {
+                console.log("Failed init, defaulting charcoal settings icon location")
+                topLeftIcon = document.getElementById("mount_0_0");
+            }
+        }
+
+        if (topLeftIcon == null) {
+            console.log("Cannot insert settings button");
             return;
         }
+
+        console.log("Inserting settings button");
 
         topLeftIcon.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_wrapper">
@@ -70,7 +86,7 @@ getStoredSettings(function(storedSettings) {
         setTimeout(_showNewThemesOnboardingIfNeeded, 1000);
     }
 
-    window.onload = tryInit;
+    window.onload = function() { tryInit(10) };
 })
 
 function _getCharcoalIcon() {

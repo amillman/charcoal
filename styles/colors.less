@@ -26,12 +26,17 @@
 
 @primary-text:                  #c9c9c9;
 @secondary-text:                darken(@primary-text, 35%);
+@tertiary-text:                 fade(@secondary-text, 60%);
 @link-text:                     lighten(@messenger-blue, 20%);
+
+@secondary-text-filter:         brightness(0) invert(0.4);
+@tertiary-text-filter:          brightness(0) invert(0.3);
 
 @other-message-text:            #d9d9d9;
 @me-message-text:               fade(black, 80%);
 
 @highlighted:                   rgba(255, 255, 255, 0.12);
+@highlighted-v2:                rgba(255, 255, 255, 0.04);
 @hover:                         rgba(255, 255, 255, 0.05);
 
 @primary-border:                rgba(255, 255, 255, 0.2);
@@ -55,12 +60,17 @@
 
 @m-primary-text:                  #d0d0d0;
 @m-secondary-text:                darken(@m-primary-text, 30%);
+@m-tertiary-text:                 fade(@m-secondary-text, 60%);
 @m-link-text:                     lighten(@messenger-blue, 10%);
+
+@m-secondary-text-filter:           brightness(0) invert(0.4);
+@m-tertiary-text-filter:            brightness(0) invert(0.3);
 
 @m-other-message-text:            #e0e0e0;
 @m-me-message-text:               fade(white, 95%);
 
 @m-highlighted:                   rgba(255, 255, 255, 0.15);
+@m-highlighted-v2:                rgba(255, 255, 255, 0.08);
 @m-hover:                         rgba(255, 255, 255, 0.10);
 
 @m-primary-border:                rgba(255, 255, 255, 0.2);
@@ -72,10 +82,10 @@
 /* -------------- DEEP BLUE THEME -------------- */
 
 @db-screen-background:             #1b252f;
-@db-dropdown-background:           shade(@db-screen-background, 6%);
+@db-dropdown-background:           tint(@db-screen-background, 1%);
 @db-reactions-background:          tint(@db-screen-background, 15%);
 
-@db-input-container-background:    rgba(0, 0, 0, 0.25);
+@db-input-container-background:    rgba(0, 0, 0, 0.18);
 
 @db-messenger-blue-brightness:     100%;
 @db-chat-theme-brightness:         100%;
@@ -84,12 +94,17 @@
 
 @db-primary-text:                  #e1e1e1;
 @db-secondary-text:                fade(white, 35%);
+@db-tertiary-text:                 fade(@db-secondary-text, 60%);
 @db-link-text:                     tint(@messenger-blue, 20%);
+
+@db-secondary-text-filter:         brightness(0) invert(0.4);
+@db-tertiary-text-filter:          brightness(0) invert(0.3);
 
 @db-other-message-text:            #e0e0e0;
 @db-me-message-text:               fade(white, 85%);
 
 @db-highlighted:                   fade(black, 25%);
+@db-highlighted-v2:                fade(black, 13%);
 @db-hover:                         fade(black, 15%);
 
 @db-primary-border:                fade(black, 26%);

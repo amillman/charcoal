@@ -1,0 +1,420 @@
+@import (reference) "colors.less";
+
+// used for helping blur elements for screenshots
+// ._4ld-, ._1ht6, ._2_a2, ._1htf, ._1ht7,
+// ._2a45, ._2a44, ._hh7 span, ._5swm, ._3xn7._3xn3,
+// ._2lpt, ._2v6o, ._4ld-, ._6zkf, ._5743._6y4y,
+// ._87v3, ._1ht1 ._1qt3, ._1jt6, ._ih3 {
+//   filter: blur(3px)!important;
+// }
+
+
+._9dls.charcoal_theme {
+  // --attachment-footer-background: #F0F2F5;
+  // --base-blue: #1877F2;
+  // --base-cherry: #F3425F;
+  // --base-grape: #9360F7;
+  // --base-lemon: #F7B928;
+  // --base-lime: #45BD62;
+  // --base-pink: #FF66BF;
+  // --base-seafoam: #54C7EC;
+  // --base-teal: #2ABBA7;
+  // --base-tomato: #FB724B;
+  // --blue-link: #216FDB;
+  --card-background: @dropdown-background;
+  // --card-background-flat: #F7F8FA;
+  --comment-background: @input-container-background;
+  // --comment-footer-background: #F6F9FA;
+  // --dataviz-primary-1: rgb(48,200,180);
+  --disabled-button-background: @input-container-background;
+  --disabled-icon: @tertiary-text;
+  --disabled-text: @tertiary-text;
+  --divider: @secondary-border;
+  // --event-date: #F3425F;
+  // --filter-accent: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%);
+  // --filter-always-white: invert(100%);
+  --filter-disabled-icon: @tertiary-text-filter;
+  --filter-placeholder-icon: @secondary-text-filter;
+  --filter-primary-icon: @secondary-text-filter;
+  --filter-secondary-icon: @secondary-text-filter;
+  // --filter-warning-icon: invert(77%) sepia(29%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(128%) hue-rotate(359deg) brightness(102%) contrast(107%);
+  // --filter-blue-link-icon: invert(30%) sepia(98%) saturate(200%) saturate(200%) saturate(200%) saturate(166.5%) hue-rotate(192deg) brightness(91%) contrast(101%);
+  // --filter-positive: invert(37%) sepia(61%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(115%) hue-rotate(91deg) brightness(97%) contrast(105%);
+  // --filter-negative: invert(25%) sepia(33%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(110%) hue-rotate(345deg) brightness(132%) contrast(96%);
+  // --font-family-apple: system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", sans-serif;
+  // --font-family-default: Helvetica, Arial, sans-serif;
+  // --font-family-segoe: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+  // --glimmer-spinner-icon: #65676B;
+  // --hero-banner-background: #FFFFFF;
+  // highlighted message
+  --hosted-view-selected-state: @highlighted-v2;
+  --highlight-bg: @hover;
+  --hover-overlay: @hover;
+  // --media-hover: rgba(68, 73, 80, 0.15);
+  --media-inner-border: @secondary-border;
+  --media-outer-border: @screen-background;
+  // --media-pressed: rgba(68, 73, 80, 0.35);
+  --messenger-card-background:@screen-background;
+  --messenger-reply-background: @other-message-background;
+  --overlay-alpha-80: rgba(0, 0, 0, 0.5);
+  // --overlay-on-media: rgba(0, 0, 0, 0.6);
+  // --nav-bar-background: #FFFFFF;
+  --nav-bar-background-gradient: rgba(0,0,0,0);
+  // --nav-bar-background-gradient-wash: linear-gradient(to top, #F0F2F5, rgba(240,242,245.9), rgba(240,242,245,0.7), rgba(240,242,245,0.4), rgba(240,242,245,0));
+  // --negative: hsl(350, 87%, 55%);
+  // --negative-background: hsl(350, 87%, 55%, 20%);
+  // --new-notification-background: #E7F3FF;
+  // --non-media-pressed: rgba(68, 73, 80, 0.15);
+  // --non-media-pressed-on-dark: rgba(255, 255, 255, 0.3);
+  // --notification-badge: #F02849;
+  --placeholder-icon: @secondary-text;
+  --placeholder-text: @secondary-text;
+  // --placeholder-text-on-media: rgba(255, 255, 255, 0.5);
+  --popover-background: @dropdown-background;
+  // --positive: #31A24C;
+  // "5m" active label background
+  --positive-background: @dropdown-background;
+  // --press-overlay: rgba(0, 0, 0, 0.1);
+  // --primary-button-background: #1877F2;
+  // --primary-button-background-experiment: #1B74E4;
+  // --primary-button-pressed: #77A7FF;
+  // --primary-button-text: #FFFFFF;
+  --primary-deemphasized-button-background: @input-container-background;
+  --primary-deemphasized-button-pressed: @highlighted-v2;
+  --primary-deemphasized-button-pressed-overlay: @hover;
+  --primary-deemphasized-button-text: --accent;
+  --primary-icon: @primary-text;
+  --primary-text: @primary-text;
+  // --primary-text-on-media: #FFFFFF;
+  // --progress-ring-neutral-background: rgba(0, 0, 0, 0.2);
+  // --progress-ring-neutral-foreground: #000000;
+  // --progress-ring-on-media-background: rgba(255, 255, 255, 0.2);
+  // --progress-ring-on-media-foreground: #FFFFFF;
+  // --progress-ring-blue-background: rgba(24, 119, 242, 0.2);
+  // --progress-ring-blue-foreground: hsl(214, 89%, 52%);
+  // --progress-ring-disabled-background: rgba(190,195,201, 0.2);
+  // --progress-ring-disabled-foreground: #BEC3C9;
+  // --scroll-thumb: #BCC0C4;
+  --secondary-button-background: @input-container-background;
+  // --secondary-button-background-floating: #ffffff;
+  // --secondary-button-background-on-dark: rgba(0, 0, 0, 0.4);
+  --secondary-button-pressed: @highlighted-v2;
+  // --secondary-button-text: #050505;
+  --secondary-icon: @secondary-text;
+  --secondary-text: @secondary-text;
+  // --secondary-text-on-media: rgba(255, 255, 255, 0.9);
+  // --section-header-text: #4B4C4F;
+  // --shadow-1: rgba(0, 0, 0, 0.1);
+  // --shadow-2: rgba(0, 0, 0, 0.2);
+  // --shadow-5: rgba(0, 0, 0, 0.5);
+  // --shadow-8: rgba(0, 0, 0, 0.8);
+  --shadow-inset: @secondary-border;
+  --surface-background: @screen-background;
+  // --text-highlight: rgba(24, 119, 242, 0.2);
+  // --toggle-active-background: #E7F3FF;
+  // --toggle-active-icon: rgb(24, 119, 242);
+  // --toggle-active-text: rgb(24, 119, 242);
+  // --toggle-button-active-background: #E7F3FF;
+  --wash: @other-message-background;
+  --web-wash: @dropdown-background;
+  // --warning: hsl(40, 89%, 52%);
+  // --dataviz-primary-2: rgb(134,218,255);
+  // --dataviz-primary-3: rgb(95,170,255);
+  // --dataviz-secondary-1: rgb(118,62,230);
+  // --dataviz-secondary-2: rgb(147,96,247);
+  // --dataviz-secondary-3: rgb(219,26,139);
+  // --dataviz-supplementary-1: rgb(255,122,105);
+  // --dataviz-supplementary-2: rgb(241,168,23);
+  // --dataviz-supplementary-3: rgb(49,162,76);
+  // --dataviz-supplementary-4: rgb(50,52,54);
+}
+
+._9dls.midnight_theme {
+  // --attachment-footer-background: #F0F2F5;
+  // --base-blue: #1877F2;
+  // --base-cherry: #F3425F;
+  // --base-grape: #9360F7;
+  // --base-lemon: #F7B928;
+  // --base-lime: #45BD62;
+  // --base-pink: #FF66BF;
+  // --base-seafoam: #54C7EC;
+  // --base-teal: #2ABBA7;
+  // --base-tomato: #FB724B;
+  // --blue-link: #216FDB;
+  --card-background: @m-dropdown-background;
+  // --card-background-flat: #F7F8FA;
+  --comment-background: @m-input-container-background;
+  // --comment-footer-background: #F6F9FA;
+  // --dataviz-primary-1: rgb(48,200,180);
+  --disabled-button-background: @m-input-container-background;
+  --disabled-icon: @m-tertiary-text;
+  --disabled-text: @m-tertiary-text;
+  --divider: @m-secondary-border;
+  // --event-date: #F3425F;
+  // --filter-accent: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%);
+  // --filter-always-white: invert(100%);
+  --filter-disabled-icon: @m-tertiary-text-filter;
+  --filter-placeholder-icon: @m-secondary-text-filter;
+  --filter-primary-icon: @m-secondary-text-filter;
+  --filter-secondary-icon: @m-secondary-text-filter;
+  // --filter-warning-icon: invert(77%) sepia(29%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(128%) hue-rotate(359deg) brightness(102%) contrast(107%);
+  // --filter-blue-link-icon: invert(30%) sepia(98%) saturate(200%) saturate(200%) saturate(200%) saturate(166.5%) hue-rotate(192deg) brightness(91%) contrast(101%);
+  // --filter-positive: invert(37%) sepia(61%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(115%) hue-rotate(91deg) brightness(97%) contrast(105%);
+  // --filter-negative: invert(25%) sepia(33%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(110%) hue-rotate(345deg) brightness(132%) contrast(96%);
+  // --font-family-apple: system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", sans-serif;
+  // --font-family-default: Helvetica, Arial, sans-serif;
+  // --font-family-segoe: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+  // --glimmer-spinner-icon: #65676B;
+  // --hero-banner-background: #FFFFFF;
+  // highlighted message
+  --hosted-view-selected-state: @m-highlighted-v2;
+  --highlight-bg: @m-hover;
+  --hover-overlay: @m-hover;
+  // --media-hover: rgba(68, 73, 80, 0.15);
+  --media-inner-border: @m-secondary-border;
+  --media-outer-border: @m-screen-background;
+  // --media-pressed: rgba(68, 73, 80, 0.35);
+  --messenger-card-background:@m-screen-background;
+  --messenger-reply-background: @m-other-message-background;
+  --overlay-alpha-80: rgba(0, 0, 0, 0.5);
+  // --overlay-on-media: rgba(0, 0, 0, 0.6);
+  // --nav-bar-background: #FFFFFF;
+  --nav-bar-background-gradient: rgba(0,0,0,0);
+  // --nav-bar-background-gradient-wash: linear-gradient(to top, #F0F2F5, rgba(240,242,245.9), rgba(240,242,245,0.7), rgba(240,242,245,0.4), rgba(240,242,245,0));
+  // --negative: hsl(350, 87%, 55%);
+  // --negative-background: hsl(350, 87%, 55%, 20%);
+  // --new-notification-background: #E7F3FF;
+  // --non-media-pressed: rgba(68, 73, 80, 0.15);
+  // --non-media-pressed-on-dark: rgba(255, 255, 255, 0.3);
+  // --notification-badge: #F02849;
+  --placeholder-icon: @m-secondary-text;
+  --placeholder-text: @m-secondary-text;
+  // --placeholder-text-on-media: rgba(255, 255, 255, 0.5);
+  --popover-background: @m-dropdown-background;
+  // --positive: #31A24C;
+  // "5m" active label background
+  --positive-background: @m-dropdown-background;
+  // --press-overlay: rgba(0, 0, 0, 0.1);
+  // --primary-button-background: #1877F2;
+  // --primary-button-background-experiment: #1B74E4;
+  // --primary-button-pressed: #77A7FF;
+  // --primary-button-text: #FFFFFF;
+  --primary-deemphasized-button-background: @m-input-container-background;
+  --primary-deemphasized-button-pressed: @m-highlighted-v2;
+  --primary-deemphasized-button-pressed-overlay: @m-hover;
+  --primary-deemphasized-button-text: --accent;
+  --primary-icon: @m-primary-text;
+  --primary-text: @m-primary-text;
+  // --primary-text-on-media: #FFFFFF;
+  // --progress-ring-neutral-background: rgba(0, 0, 0, 0.2);
+  // --progress-ring-neutral-foreground: #000000;
+  // --progress-ring-on-media-background: rgba(255, 255, 255, 0.2);
+  // --progress-ring-on-media-foreground: #FFFFFF;
+  // --progress-ring-blue-background: rgba(24, 119, 242, 0.2);
+  // --progress-ring-blue-foreground: hsl(214, 89%, 52%);
+  // --progress-ring-disabled-background: rgba(190,195,201, 0.2);
+  // --progress-ring-disabled-foreground: #BEC3C9;
+  // --scroll-thumb: #BCC0C4;
+  --secondary-button-background: @m-input-container-background;
+  // --secondary-button-background-floating: #ffffff;
+  // --secondary-button-background-on-dark: rgba(0, 0, 0, 0.4);
+  --secondary-button-pressed: @m-highlighted-v2;
+  // --secondary-button-text: #050505;
+  --secondary-icon: @m-secondary-text;
+  --secondary-text: @m-secondary-text;
+  // --secondary-text-on-media: rgba(255, 255, 255, 0.9);
+  // --section-header-text: #4B4C4F;
+  // --shadow-1: rgba(0, 0, 0, 0.1);
+  // --shadow-2: rgba(0, 0, 0, 0.2);
+  // --shadow-5: rgba(0, 0, 0, 0.5);
+  // --shadow-8: rgba(0, 0, 0, 0.8);
+  --shadow-inset: @m-secondary-border;
+  --surface-background: @m-screen-background;
+  // --text-highlight: rgba(24, 119, 242, 0.2);
+  // --toggle-active-background: #E7F3FF;
+  // --toggle-active-icon: rgb(24, 119, 242);
+  // --toggle-active-text: rgb(24, 119, 242);
+  // --toggle-button-active-background: #E7F3FF;
+  --wash: @m-other-message-background;
+  --web-wash: @m-dropdown-background;
+  // --warning: hsl(40, 89%, 52%);
+  // --dataviz-primary-2: rgb(134,218,255);
+  // --dataviz-primary-3: rgb(95,170,255);
+  // --dataviz-secondary-1: rgb(118,62,230);
+  // --dataviz-secondary-2: rgb(147,96,247);
+  // --dataviz-secondary-3: rgb(219,26,139);
+  // --dataviz-supplementary-1: rgb(255,122,105);
+  // --dataviz-supplementary-2: rgb(241,168,23);
+  // --dataviz-supplementary-3: rgb(49,162,76);
+  // --dataviz-supplementary-4: rgb(50,52,54);
+}
+
+._9dls.deepblue_theme {
+  // --attachment-footer-background: #F0F2F5;
+  // --base-blue: #1877F2;
+  // --base-cherry: #F3425F;
+  // --base-grape: #9360F7;
+  // --base-lemon: #F7B928;
+  // --base-lime: #45BD62;
+  // --base-pink: #FF66BF;
+  // --base-seafoam: #54C7EC;
+  // --base-teal: #2ABBA7;
+  // --base-tomato: #FB724B;
+  // --blue-link: #216FDB;
+  --card-background: @db-dropdown-background;
+  // --card-background-flat: #F7F8FA;
+  --comment-background: @db-input-container-background;
+  // --comment-footer-background: #F6F9FA;
+  // --dataviz-primary-1: rgb(48,200,180);
+  --disabled-button-background: @db-input-container-background;
+  --disabled-icon: @db-tertiary-text;
+  --disabled-text: @db-tertiary-text;
+  --divider: @db-secondary-border;
+  // --event-date: #F3425F;
+  // --filter-accent: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%);
+  // --filter-always-white: invert(100%);
+  --filter-disabled-icon: @db-tertiary-text-filter;
+  --filter-placeholder-icon: @db-secondary-text-filter;
+  --filter-primary-icon: @db-secondary-text-filter;
+  --filter-secondary-icon: @db-secondary-text-filter;
+  // --filter-warning-icon: invert(77%) sepia(29%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(128%) hue-rotate(359deg) brightness(102%) contrast(107%);
+  // --filter-blue-link-icon: invert(30%) sepia(98%) saturate(200%) saturate(200%) saturate(200%) saturate(166.5%) hue-rotate(192deg) brightness(91%) contrast(101%);
+  // --filter-positive: invert(37%) sepia(61%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(115%) hue-rotate(91deg) brightness(97%) contrast(105%);
+  // --filter-negative: invert(25%) sepia(33%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(110%) hue-rotate(345deg) brightness(132%) contrast(96%);
+  // --font-family-apple: system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", sans-serif;
+  // --font-family-default: Helvetica, Arial, sans-serif;
+  // --font-family-segoe: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+  // --glimmer-spinner-icon: #65676B;
+  // --hero-banner-background: #FFFFFF;
+  // highlighted message
+  --hosted-view-selected-state: @db-highlighted-v2;
+  --highlight-bg: @db-hover;
+  --hover-overlay: @db-hover;
+  // --media-hover: rgba(68, 73, 80, 0.15);
+  --media-inner-border: @db-secondary-border;
+  --media-outer-border: @db-screen-background;
+  // --media-pressed: rgba(68, 73, 80, 0.35);
+  --messenger-card-background:@db-screen-background;
+  --messenger-reply-background: @db-other-message-background;
+  --overlay-alpha-80: rgba(0, 0, 0, 0.5);
+  // --overlay-on-media: rgba(0, 0, 0, 0.6);
+  // --nav-bar-background: #FFFFFF;
+  --nav-bar-background-gradient: rgba(0,0,0,0);
+  // --nav-bar-background-gradient-wash: linear-gradient(to top, #F0F2F5, rgba(240,242,245.9), rgba(240,242,245,0.7), rgba(240,242,245,0.4), rgba(240,242,245,0));
+  // --negative: hsl(350, 87%, 55%);
+  // --negative-background: hsl(350, 87%, 55%, 20%);
+  // --new-notification-background: #E7F3FF;
+  // --non-media-pressed: rgba(68, 73, 80, 0.15);
+  // --non-media-pressed-on-dark: rgba(255, 255, 255, 0.3);
+  // --notification-badge: #F02849;
+  --placeholder-icon: @db-secondary-text;
+  --placeholder-text: @db-secondary-text;
+  // --placeholder-text-on-media: rgba(255, 255, 255, 0.5);
+  --popover-background: @db-dropdown-background;
+  // --positive: #31A24C;
+  // "5m" active label background
+  --positive-background: @db-dropdown-background;
+  // --press-overlay: rgba(0, 0, 0, 0.1);
+  // --primary-button-background: #1877F2;
+  // --primary-button-background-experiment: #1B74E4;
+  // --primary-button-pressed: #77A7FF;
+  // --primary-button-text: #FFFFFF;
+  --primary-deemphasized-button-background: @db-input-container-background;
+  --primary-deemphasized-button-pressed: @db-highlighted-v2;
+  --primary-deemphasized-button-pressed-overlay: @db-hover;
+  --primary-deemphasized-button-text: --accent;
+  --primary-icon: @db-primary-text;
+  --primary-text: @db-primary-text;
+  // --primary-text-on-media: #FFFFFF;
+  // --progress-ring-neutral-background: rgba(0, 0, 0, 0.2);
+  // --progress-ring-neutral-foreground: #000000;
+  // --progress-ring-on-media-background: rgba(255, 255, 255, 0.2);
+  // --progress-ring-on-media-foreground: #FFFFFF;
+  // --progress-ring-blue-background: rgba(24, 119, 242, 0.2);
+  // --progress-ring-blue-foreground: hsl(214, 89%, 52%);
+  // --progress-ring-disabled-background: rgba(190,195,201, 0.2);
+  // --progress-ring-disabled-foreground: #BEC3C9;
+  // --scroll-thumb: #BCC0C4;
+  --secondary-button-background: @db-input-container-background;
+  // --secondary-button-background-floating: #ffffff;
+  // --secondary-button-background-on-dark: rgba(0, 0, 0, 0.4);
+  --secondary-button-pressed: @db-highlighted-v2;
+  // --secondary-button-text: #050505;
+  --secondary-icon: @db-secondary-text;
+  --secondary-text: @db-secondary-text;
+  // --secondary-text-on-media: rgba(255, 255, 255, 0.9);
+  // --section-header-text: #4B4C4F;
+  // --shadow-1: rgba(0, 0, 0, 0.1);
+  // --shadow-2: rgba(0, 0, 0, 0.2);
+  // --shadow-5: rgba(0, 0, 0, 0.5);
+  // --shadow-8: rgba(0, 0, 0, 0.8);
+  --shadow-inset: @db-secondary-border;
+  --surface-background: @db-screen-background;
+  // --text-highlight: rgba(24, 119, 242, 0.2);
+  // --toggle-active-background: #E7F3FF;
+  // --toggle-active-icon: rgb(24, 119, 242);
+  // --toggle-active-text: rgb(24, 119, 242);
+  // --toggle-button-active-background: #E7F3FF;
+  --wash: @db-other-message-background;
+  --web-wash: @db-dropdown-background;
+  // --warning: hsl(40, 89%, 52%);
+  // --dataviz-primary-2: rgb(134,218,255);
+  // --dataviz-primary-3: rgb(95,170,255);
+  // --dataviz-secondary-1: rgb(118,62,230);
+  // --dataviz-secondary-2: rgb(147,96,247);
+  // --dataviz-secondary-3: rgb(219,26,139);
+  // --dataviz-supplementary-1: rgb(255,122,105);
+  // --dataviz-supplementary-2: rgb(241,168,23);
+  // --dataviz-supplementary-3: rgb(49,162,76);
+  // --dataviz-supplementary-4: rgb(50,52,54);
+}
+
+/* --------- OVERRIDES ------- */
+
+// reaction dropdown
+.nwpbqux9,
+// reaction bubble  (inline message)
+.hgaippwi,
+// emoji bottom bar
+._1og-
+{
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    background-color: var(--card-background)!important;
+  }
+}
+
+// attachment background
+.n1jkxfxr {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    background-color: var(--secondary-button-background)!important;
+  }
+}
+
+// top left menu button colors
+svg.hwsy1cff, svg[fill="#000"], path[fill="#000"] {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    fill: var(--secondary-text);
+  }
+}
+
+// profile images
+.oaz4zybt {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    box-shadow: none!important;
+  }
+}
+
+// blank profile image
+.sp_Ak9mPwp2uaF_2x.sx_b00c79 {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    filter: var(--filter-secondary-icon)!important;
+  }
+}
+
+// navbar shadow
+.bafdgad4 {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme &{
+    box-shadow: 0 1px 0px var(--divider)!important;
+  }
+}
+
