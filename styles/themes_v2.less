@@ -9,12 +9,12 @@
 // }
 
 
-._9dls.charcoal_theme {
+._9dls.charcoal_theme, ._9dls.charcoal_theme .__fb-light-mode {
   // --attachment-footer-background: #F0F2F5;
   // --base-blue: #1877F2;
   // --base-cherry: #F3425F;
   // --base-grape: #9360F7;
-  // --base-lemon: #F7B928;
+  --base-lemon: #bd8500;
   // --base-lime: #45BD62;
   // --base-pink: #FF66BF;
   // --base-seafoam: #54C7EC;
@@ -74,7 +74,7 @@
   // --positive: #31A24C;
   // "5m" active label background
   --positive-background: @dropdown-background;
-  // --press-overlay: rgba(0, 0, 0, 0.1);
+  --press-overlay: @highlighted-v2;
   // --primary-button-background: #1877F2;
   // --primary-button-background-experiment: #1B74E4;
   // --primary-button-pressed: #77A7FF;
@@ -82,7 +82,7 @@
   --primary-deemphasized-button-background: @input-container-background;
   --primary-deemphasized-button-pressed: @highlighted-v2;
   --primary-deemphasized-button-pressed-overlay: @hover;
-  --primary-deemphasized-button-text: --accent;
+  --primary-deemphasized-button-text: var(--accent);
   --primary-icon: @primary-text;
   --primary-text: @primary-text;
   // --primary-text-on-media: #FFFFFF;
@@ -129,12 +129,12 @@
   // --dataviz-supplementary-4: rgb(50,52,54);
 }
 
-._9dls.midnight_theme {
+._9dls.midnight_theme, ._9dls.midnight_theme .__fb-light-mode {
   // --attachment-footer-background: #F0F2F5;
   // --base-blue: #1877F2;
   // --base-cherry: #F3425F;
   // --base-grape: #9360F7;
-  // --base-lemon: #F7B928;
+  --base-lemon: #bd8500;
   // --base-lime: #45BD62;
   // --base-pink: #FF66BF;
   // --base-seafoam: #54C7EC;
@@ -194,7 +194,7 @@
   // --positive: #31A24C;
   // "5m" active label background
   --positive-background: @m-dropdown-background;
-  // --press-overlay: rgba(0, 0, 0, 0.1);
+  --press-overlay: @m-highlighted-v2;
   // --primary-button-background: #1877F2;
   // --primary-button-background-experiment: #1B74E4;
   // --primary-button-pressed: #77A7FF;
@@ -202,7 +202,7 @@
   --primary-deemphasized-button-background: @m-input-container-background;
   --primary-deemphasized-button-pressed: @m-highlighted-v2;
   --primary-deemphasized-button-pressed-overlay: @m-hover;
-  --primary-deemphasized-button-text: --accent;
+  --primary-deemphasized-button-text: var(--accent);
   --primary-icon: @m-primary-text;
   --primary-text: @m-primary-text;
   // --primary-text-on-media: #FFFFFF;
@@ -249,12 +249,12 @@
   // --dataviz-supplementary-4: rgb(50,52,54);
 }
 
-._9dls.deepblue_theme {
+._9dls.deepblue_theme, ._9dls.deepblue_theme .__fb-light-mode {
   // --attachment-footer-background: #F0F2F5;
   // --base-blue: #1877F2;
   // --base-cherry: #F3425F;
   // --base-grape: #9360F7;
-  // --base-lemon: #F7B928;
+  --base-lemon: #bd8500;
   // --base-lime: #45BD62;
   // --base-pink: #FF66BF;
   // --base-seafoam: #54C7EC;
@@ -314,7 +314,7 @@
   // --positive: #31A24C;
   // "5m" active label background
   --positive-background: @db-dropdown-background;
-  // --press-overlay: rgba(0, 0, 0, 0.1);
+  --press-overlay: @db-highlighted-v2;
   // --primary-button-background: #1877F2;
   // --primary-button-background-experiment: #1B74E4;
   // --primary-button-pressed: #77A7FF;
@@ -322,7 +322,7 @@
   --primary-deemphasized-button-background: @db-input-container-background;
   --primary-deemphasized-button-pressed: @db-highlighted-v2;
   --primary-deemphasized-button-pressed-overlay: @db-hover;
-  --primary-deemphasized-button-text: --accent;
+  --primary-deemphasized-button-text: var(--accent);
   --primary-icon: @db-primary-text;
   --primary-text: @db-primary-text;
   // --primary-text-on-media: #FFFFFF;
@@ -391,7 +391,7 @@
 }
 
 // top left menu button colors
-svg.hwsy1cff, svg[fill="#000"], path[fill="#000"] {
+svg.hwsy1cff, svg[fill="#000"], svg[fill="black"], path[fill="#000"], path[fill="black"]  {
   ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
     fill: var(--secondary-text);
   }
