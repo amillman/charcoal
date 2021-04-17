@@ -8,13 +8,13 @@
     "128": "assets/icon@128.png"
   },
   "browser_action": {
-    "default_popup": "settings_popup.html"
+    "default_popup": "charcoal_settings_popup.html"
   },
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
       "css": ["styles/stylesheet.css"],
-      "js": ["js/mode.js", "js/init.js", "js/settings.js"]
+      "js": ["js/settings.js", "js/init.js", "js/charcoal_settings.js"]
     }
   ],
   "permissions": ["storage"],
@@ -23,7 +23,7 @@
     "assets/facebook-messenger.svg",
     "assets/midnight-messenger.svg",
     "assets/deepblue-messenger.svg",
-    "settings.html",
+    "charcoal_settings.html",
     "onboarding_dropdown.html"
   ]
 }

@@ -11,6 +11,15 @@
 @button-height:                 @slider-height - 2*@button-padding;
 @slider-translation:            @slider-width - 2*@button-padding - @button-height;
 
+@header-font-size:              20px;
+@header-font-weight:            700;
+@normal-font-size:              14px;
+@normal-font-weight:            500;
+
+.drop-shadow(@border-color) {
+  box-shadow: 0 12px 28px 0 var(--shadow-2),0 2px 4px 0 var(--shadow-1),inset 0 0 0 1px @border-color;
+}
+
 /* -------------- TOGGLE ICON -------------- */
 
 .charcoal_toggle_wrapper {
@@ -128,7 +137,7 @@
     // for dropdowns within messenger
     &.in_messenger_dropdown_container {
       border-radius: var(--card-corner-radius);
-      box-shadow: 0 12px 28px 0 var(--shadow-2),0 2px 4px 0 var(--shadow-1),inset 0 0 0 1px var(--shadow-inset);
+      .drop-shadow(var(--shadow-inset));
     }
   }
 
@@ -209,23 +218,29 @@
   display: flex;
   flex-direction: column;
 
+  .setting_section:not(:last-child) {
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
   .setting_row {
     display: flex;
     padding: 8px;
 
     .setting_header_label {
       font-size: 20px;
-      line-height: 24px;
-      font-weight: 700;
+      line-height: @header-font-size;
+      font-weight: @header-font-weight;
       flex-grow: 1;
       align-self: center;
     }
 
     .setting_row_label {
-      font-size: 14px;
+      font-size: @normal-font-size;
       line-height: 24px;
       flex-grow: 1;
-      font-weight: 500;
+      font-weight: @normal-font-weight;
       align-self: center;
     }
 
@@ -250,13 +265,53 @@
     }
   }
 
-  .separator {
-    height: 1px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
+  #appearance_selector {
+    .setting_row {
+      flex-direction: row;
+      padding: 0px;
+
+      .appearance_item {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0px;
+        padding: 8px;
+        border-radius: 4px;
+        -webkit-transition: .2s;
+        transition: .2s;
+
+        .appearance_image {
+          border-radius: 4px;
+          height: 32px;
+          width: 100%;
+
+          &.light {
+            background-color: white;
+            .drop-shadow(transparent);
+          }
+
+          &.dark {
+            background-color: @screen-background;
+            .drop-shadow(@secondary-border);
+          }
+        }
+
+        .appearance_label {
+          padding-top: 4px;
+          font-size: @normal-font-size;
+          font-weight: @normal-font-weight;
+          text-align: center;
+        }
+
+        &:hover, &.active {
+          cursor: pointer;
+          background-color: var(--hover-overlay);
+        }
+      }
+    }
   }
 
-  .options {
+  #theme_selector {
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -277,11 +332,7 @@
       -webkit-transition: .2s;
       transition: .2s;
 
-      .in_messenger_dropdown_container & {
-        border: 1px solid rgba(0,0,0,0);
-      }
-
-      &:hover {
+      &:hover, &.active {
         cursor: pointer;
         background-color: var(--hover-overlay);
       }

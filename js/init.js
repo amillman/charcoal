@@ -4,12 +4,10 @@ var settingsDropdown;
 getStoredSettings(function(storedSettings) {
     settings = storedSettings;
 
-    console.log(`Loading initial settings enabled=${settings.isEnabled}, preferredTheme=${settings.preferredTheme}`);
+    console.log(`Loading initial settings appearance=${settings.appearance}, preferredTheme=${settings.preferredTheme}`);
 
     // initial theme
-    if (settings.isEnabled) {
-        document.documentElement.classList.add(themeClassName(settings.preferredTheme));
-    }
+    _updateTheme(settings);
 
     let tryInit = function(retriesLeft) {
         // add settings button
@@ -42,13 +40,15 @@ getStoredSettings(function(storedSettings) {
 
         topLeftIcon.insertAdjacentHTML("afterend", `
             <div class="charcoal_toggle_wrapper">
-                <div class="charcoal_toggle" style="background-image:url('${settingsIconURL(settings)}')""></div>
+                <div id="charcoal_settings_button" class="charcoal_toggle"></div>
             </div>
         `);
 
         // show settings on click
-        let charcoalIcon = document.getElementsByClassName("charcoal_toggle")[0];
+        let charcoalIcon = document.getElementById("charcoal_settings_button");
         charcoalIcon.onclick = _openSettings;
+
+        _updateTheme(settings);
 
         // allow tapping outside settings dropdown to dismiss it
         window.onclick = function(e) {
@@ -72,25 +72,37 @@ getStoredSettings(function(storedSettings) {
                 return;
             }
 
-            console.log(`External update settings: enabled=${newSettings.isEnabled}, preferredTheme=${newSettings.preferredTheme}`);
+            console.log(`External update settings: appearance=${settings.appearance}, preferredTheme=${newSettings.preferredTheme}`);
 
             settings = newSettings;
-            document.documentElement.classList.remove(themeClassName(CHARCOAL_MODE), themeClassName(MIDNIGHT_MODE), themeClassName(DEEPBLUE_MODE));
-            if (settings.isEnabled) {
-                document.documentElement.classList.add(themeClassName(settings.preferredTheme));
-            }
-
-            charcoalIcon.setAttribute("style", `background-image:url('${settingsIconURL(settings)}')`);
+            _updateTheme(settings);
         });
 
         setTimeout(_showNewThemesOnboardingIfNeeded, 1000);
     }
 
     window.onload = function() { tryInit(10) };
+
+    listenForSystemThemeUpdates(function() {
+        _updateTheme(settings);
+    });
 })
 
+function _updateTheme(settings) {
+    document.documentElement.classList.remove(themeClassName(CHARCOAL_MODE), themeClassName(MIDNIGHT_MODE), themeClassName(DEEPBLUE_MODE));
+    let newThemeClass = themeClassName(settings.currentTheme());
+    if (newThemeClass) {
+        document.documentElement.classList.add(newThemeClass);
+    }
+
+    let charcoalIcon = document.getElementById("charcoal_settings_button");
+    if (charcoalIcon) {
+        charcoalIcon.setAttribute("style", `background-image:url('${themeIconURL(settings.currentTheme())}')`);
+    }
+}
+
 function _getCharcoalIcon() {
-    return document.getElementsByClassName("charcoal_toggle")[0];
+    return document.getElementById("charcoal_settings_button");
 }
 
 function _getCurrentDropdown() {
@@ -132,7 +144,7 @@ function _openSettings() {
     if (_settingsIsOpen()) { return; }
 
     var xhr= new XMLHttpRequest();
-    xhr.open('GET', chrome.extension.getURL('settings.html'), true);
+    xhr.open('GET', chrome.extension.getURL('charcoal_settings.html'), true);
     xhr.onreadystatechange= function() {
         if (this.readyState!==4) return;
         if (this.status!==200) return; // or whatever error handling you want
@@ -152,7 +164,7 @@ function _openSettings() {
                 _transitionDropdown(null);
             }
 
-            runSettings();
+            setupCharcoalSettings();
         });
     };
     xhr.send();

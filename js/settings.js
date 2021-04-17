@@ -1,67 +1,114 @@
-function runSettings() {
-    getStoredSettings(function(storedSettings) {
-        var settings = storedSettings;
+let SETTINGS_KEY = "settings"
 
-        let modeSwitchInput = document.getElementById("theme_switch_input");
-        modeSwitchInput.checked = settings.isEnabled;
-        _updateOptionsUI(settings);
+let DEFAULT_MODE = "default"
+let CHARCOAL_MODE = "charcoal"
+let MIDNIGHT_MODE = "midnight"
+let DEEPBLUE_MODE = "deepblue"
 
-        modeSwitchInput.addEventListener('change', (e) => {
-            settings.isEnabled = e.target.checked;
-            updateStoredSettings(settings, function() {
-                _updateOptionsUI(settings);
-            });
-        });
+let LIGHT_APPEARANCE = "light"
+let DARK_APPEARANCE = "dark"
+let SYSTEM_APPEARANCE = "system"
 
-        let themeSelector = document.getElementById("theme_selector");
-        let options = themeSelector.getElementsByClassName("setting_row");
-        for (var i=0, option; option = options[i]; i++) {
-            option.onclick = function() {
-                if (themeSelector.classList.contains("disabled")) {
-                    return;
-                }
+// onboarding / education
+let NEW_THEMES_ONBOARDING_KEY = "NEW_THEMES_ONBOARDING_KEY"
 
-                let newTheme = this.dataset.theme;
-                if (newTheme == null) { return; }
-                settings.preferredTheme = newTheme;
-                updateStoredSettings(settings, function() {
-                    _updateOptionsUI(settings);
-                });
-            };
-        }
+function getStoredSettings(callback) {
+    chrome.storage.sync.get([SETTINGS_KEY], function(result) {
+        let storedSettings = result[SETTINGS_KEY];
 
-        listenForSettingsUpdates(function(newSettings) {
-            if (newSettings == settings) {
-                return;
-            }
+        // replace "isEnabled" setting with "appearance"
+        let settings = _insertApperanceIfNeeded(storedSettings);
+        _loadMethods(settings);
 
-            settings = newSettings;
-            modeSwitchInput.checked = settings.isEnabled;
-            _updateOptionsUI(settings);
-        });
+        callback(settings);
     });
 }
 
-function _updateOptionsUI(settings) {
-    let themeSelector = document.getElementById("theme_selector");
-    if (!settings.isEnabled) {
-        themeSelector.classList.add("disabled");
+function updateStoredSettings(settings, callback) {
+    chrome.storage.sync.set({ [SETTINGS_KEY]: settings }, callback);
+}
+
+function listenForSettingsUpdates(handler) {
+    chrome.storage.onChanged.addListener(function(changes) {
+        let settingsChanges = changes[SETTINGS_KEY];
+        if (settingsChanges && settingsChanges.newValue) {
+            let newSettings = settingsChanges.newValue;
+            _loadMethods(newSettings);
+            handler(newSettings);
+        }
+    });
+}
+
+function listenForSystemThemeUpdates(handler) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        handler();
+    });
+}
+
+function checkIfOnboardingNeeded(key, handler) {
+    chrome.storage.sync.get(key, function(result) {
+        let hasSeenOnboarding = result[key];
+        handler(hasSeenOnboarding == null || !hasSeenOnboarding);
+    });
+}
+
+function updateOnboardingSeen(key) {
+    chrome.storage.sync.set({ [key]: true });
+}
+
+function themeClassName(theme) {
+    if (theme == CHARCOAL_MODE) {
+        return "charcoal_theme"
+    } else if (theme == MIDNIGHT_MODE) {
+        return "midnight_theme"
+    } else if (theme == DEEPBLUE_MODE) {
+        return "deepblue_theme"
     } else {
-        themeSelector.classList.remove("disabled");
+        return ""
+    }
+}
+
+function themeIconURL(theme) {
+    if (theme == CHARCOAL_MODE) {
+        return chrome.extension.getURL("assets/charcoal-messenger.svg");
+    } else if (theme == MIDNIGHT_MODE) {
+        return chrome.extension.getURL("assets/midnight-messenger.svg");
+    } else if (theme == DEEPBLUE_MODE) {
+        return chrome.extension.getURL("assets/deepblue-messenger.svg");
+    } else {
+        return chrome.extension.getURL("assets/facebook-messenger.svg");
+    }
+}
+
+function _insertApperanceIfNeeded(settings) {
+    if (settings.isEnabled != null) {
+        if (settings.isEnabled) {
+            settings.appearance = DARK_APPEARANCE;
+        } else {
+            settings.appearance = LIGHT_APPEARANCE;
+        }
+        delete settings.isEnabled;
     }
 
-    let options = themeSelector.getElementsByClassName("setting_row");
-    for (var i=0, option; option = options[i]; i++) {
-        let selectedCircle = option.getElementsByClassName("charcoal_toggle")[0];
-        if (selectedCircle) {
-            selectedCircle.parentNode.removeChild(selectedCircle);
+    return settings;
+}
+
+function _loadMethods(settings) {
+    settings.currentTheme = function() {
+        // return Charcoal for popup since it does not change theme
+        if (document.documentElement.id == 'settings_popup') {
+            return CHARCOAL_MODE;
         }
 
-        let isActive = option.dataset.theme == settings.preferredTheme;
-        let iconURL = settings.isEnabled ? themeIconURL(option.dataset.theme) : themeIconURL(CHARCOAL_MODE);
-
-        option.insertAdjacentHTML("afterbegin", `
-            <div class="charcoal_toggle ${isActive ? "active" : ""} ${themeClassName(option.dataset.theme)}" style="background-image:url('${iconURL}')""></div>
-        `);
+        switch(settings.appearance) {
+        case LIGHT_APPEARANCE:
+            return DEFAULT_MODE;
+        case DARK_APPEARANCE:
+            return settings.preferredTheme;
+        case SYSTEM_APPEARANCE:
+            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? settings.preferredTheme : DEFAULT_MODE;
+        default:
+            return CHARCOAL_MODE;
+        }
     }
 }
