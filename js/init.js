@@ -190,7 +190,7 @@ function _transitionDropdown(newContent, callback = function() {}) {
         setTimeout(function() {
             _getCurrentDropdown().getElementsByClassName("content_container")[0].innerHTML = newContent;
             let contentContainer = document.getElementsByClassName("content_container")[0];
-            _getCurrentDropdown().style.height = `${contentContainer.clientHeight}px`;
+            _getCurrentDropdown().style.height = null;
             callback();
         }, animationTime + 200);
     } else {
@@ -207,7 +207,7 @@ function _transitionDropdown(newContent, callback = function() {}) {
         _getCurrentDropdown().style.height = `0px`;
 
         let contentContainer = document.getElementsByClassName("content_container")[0];
-        _getCurrentDropdown().style.height = `${contentContainer.clientHeight}px`;
+        _getCurrentDropdown().style.height = null;
         callback();
     }
 }

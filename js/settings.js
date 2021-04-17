@@ -52,18 +52,16 @@ function _updateOptionsUI(settings) {
 
     let options = themeSelector.getElementsByClassName("setting_row");
     for (var i=0, option; option = options[i]; i++) {
-        let selectedCircle = option.getElementsByClassName("charcoal_toggle_circle")[0];
+        let selectedCircle = option.getElementsByClassName("charcoal_toggle")[0];
         if (selectedCircle) {
             selectedCircle.parentNode.removeChild(selectedCircle);
         }
 
-        if (option.dataset.theme != settings.preferredTheme) { continue; }
+        let isActive = option.dataset.theme == settings.preferredTheme;
+        let iconURL = settings.isEnabled ? themeIconURL(option.dataset.theme) : themeIconURL(CHARCOAL_MODE);
 
-        let settingLabel = option.getElementsByClassName("setting_name_label")[0];
-        settingLabel.insertAdjacentHTML("afterend", `
-            <div class="charcoal_toggle_circle ${themeClassName(settings.preferredTheme)}">
-                <div class="charcoal_toggle" style="background-image:url('${themeIconURL(settings.preferredTheme)}')""></div>
-            </div>
+        option.insertAdjacentHTML("afterbegin", `
+            <div class="charcoal_toggle ${isActive ? "active" : ""} ${themeClassName(option.dataset.theme)}" style="background-image:url('${iconURL}')""></div>
         `);
     }
 }
