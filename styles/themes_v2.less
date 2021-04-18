@@ -92,7 +92,7 @@
   --primary-deemphasized-button-pressed: @highlighted-v2;
   --primary-deemphasized-button-pressed-overlay: @hover;
   --primary-deemphasized-button-text: var(--accent);
-  --primary-icon: @primary-text;
+  --primary-icon: @secondary-text;
   --primary-text: @primary-text;
   // --primary-text-on-media: #FFFFFF;
   // --progress-ring-neutral-background: rgba(0, 0, 0, 0.2);
@@ -212,7 +212,7 @@
   --primary-deemphasized-button-pressed: @m-highlighted-v2;
   --primary-deemphasized-button-pressed-overlay: @m-hover;
   --primary-deemphasized-button-text: var(--accent);
-  --primary-icon: @m-primary-text;
+  --primary-icon: @m-secondary-text;
   --primary-text: @m-primary-text;
   // --primary-text-on-media: #FFFFFF;
   // --progress-ring-neutral-background: rgba(0, 0, 0, 0.2);
@@ -332,7 +332,7 @@
   --primary-deemphasized-button-pressed: @db-highlighted-v2;
   --primary-deemphasized-button-pressed-overlay: @db-hover;
   --primary-deemphasized-button-text: var(--accent);
-  --primary-icon: @db-primary-text;
+  --primary-icon: @db-secondary-text;
   --primary-text: @db-primary-text;
   // --primary-text-on-media: #FFFFFF;
   // --progress-ring-neutral-background: rgba(0, 0, 0, 0.2);
@@ -443,6 +443,34 @@ svg.hwsy1cff, svg[fill="#000"], svg[fill="black"], path[fill="#000"], path[fill=
 {
   ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
     filter: var(--filter-secondary-icon)!important;
+  }
+}
+
+// red backgrounds
+.cvgnql8j {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    --filter-secondary-icon: var(--filter-always-white);
+  }
+}
+
+// lowered opacity elements, in light mode used often on black icons/text to make them look like secondary icons/text.
+// set icons colored as --secondary-text in this case back to --primary-text
+.lupvgy83 {
+  ._9dls.charcoal_theme &, ._9dls.midnight_theme &, ._9dls.deepblue_theme & {
+    --secondary-text: var(--primary-text);
+  }
+}
+
+// undo overrides on secondary button backgrounds in messages
+.nqmqzb3c .tdjehn4e {
+  ._9dls.charcoal_theme & {
+    --secondary-button-background: @input-container-background;
+  }
+  ._9dls.midnight_theme & {
+    --secondary-button-background: @m-input-container-background;
+  }
+  ._9dls.deepblue_theme & {
+    --secondary-button-background: @db-input-container-background;
   }
 }
 
