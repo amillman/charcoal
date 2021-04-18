@@ -10,6 +10,13 @@ getStoredSettings(function(storedSettings) {
     _updateTheme(settings);
 
     let tryInit = function(retriesLeft) {
+        console.log("Attempting init");
+
+        if (document.getElementById("charcoal_settings_button")) {
+            console.log("Settings button already exists");
+            return;
+        }
+
         // add settings button
         var topLeftIcon = document.getElementsByClassName("_4kzu")[0]; // Old style settings icon
         if (topLeftIcon == null) {
@@ -82,6 +89,10 @@ getStoredSettings(function(storedSettings) {
     }
 
     window.onload = function() { tryInit(10) };
+    // if window.onload already happened, manually init
+    if (document.readyState == "complete") {
+        tryInit(10);
+    }
 
     listenForSystemThemeUpdates(function() {
         _updateTheme(settings);
