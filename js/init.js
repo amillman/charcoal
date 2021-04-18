@@ -149,22 +149,18 @@ function _openSettings() {
         if (this.readyState!==4) return;
         if (this.status!==200) return; // or whatever error handling you want
 
-        let dropdownInnerHTML = `
-            ${this.responseText}
-            <div class="button" id="charcoal_settings_done_button">Done</div>
-        `;
+        let dropdownInnerHTML = this.responseText;
 
         _transitionDropdown(dropdownInnerHTML, function() {
             let currentDropDown = _getCurrentDropdown();
             currentDropDown.setAttribute("id", "charcoal_settings");
 
+            setupCharcoalSettings();
             // dismiss via done button
             document.getElementById("charcoal_settings_done_button").onclick = function() {
                 if (!_settingsIsOpen) { return; }
                 _transitionDropdown(null);
             }
-
-            setupCharcoalSettings();
         });
     };
     xhr.send();
