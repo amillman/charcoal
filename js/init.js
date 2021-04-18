@@ -114,7 +114,8 @@ function _settingsIsOpen() {
 }
 
 function _showNewThemesOnboardingIfNeeded() {
-    checkIfOnboardingNeeded(NEW_THEMES_ONBOARDING_KEY, function(showOnboarding) {
+    let newestOnboardingKey = APPEARANCE_ONBOARDING_KEY
+    checkIfOnboardingNeeded(newestOnboardingKey, function(showOnboarding) {
         if (!showOnboarding) { return; }
 
         var xhr = new XMLHttpRequest();
@@ -134,7 +135,7 @@ function _showNewThemesOnboardingIfNeeded() {
                 }
             });
 
-            updateOnboardingSeen(NEW_THEMES_ONBOARDING_KEY);
+            updateOnboardingSeen(newestOnboardingKey);
         };
         xhr.send();
     });

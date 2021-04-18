@@ -11,6 +11,7 @@ let SYSTEM_APPEARANCE = "system"
 
 // onboarding / education
 let NEW_THEMES_ONBOARDING_KEY = "NEW_THEMES_ONBOARDING_KEY"
+let APPEARANCE_ONBOARDING_KEY = "APPEARANCE_ONBOARDING_KEY"
 
 function getStoredSettings(callback) {
     chrome.storage.sync.get([SETTINGS_KEY], function(result) {
