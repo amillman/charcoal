@@ -15,10 +15,9 @@ let APPEARANCE_ONBOARDING_KEY = "APPEARANCE_ONBOARDING_KEY"
 
 function getStoredSettings(callback) {
     chrome.storage.sync.get([SETTINGS_KEY], function(result) {
-        let storedSettings = result[SETTINGS_KEY];
-
-        // replace "isEnabled" setting with "appearance"
-        let settings = _insertApperanceIfNeeded(storedSettings);
+        let settings = result[SETTINGS_KEY] ?? _defaultSettings();
+        // replace legacy "isEnabled" setting with "appearance"
+        _insertAppearanceIfNeeded(settings);
         _loadMethods(settings);
 
         callback(settings);
@@ -81,7 +80,7 @@ function themeIconURL(theme) {
     }
 }
 
-function _insertApperanceIfNeeded(settings) {
+function _insertAppearanceIfNeeded(settings) {
     if (settings.isEnabled != null) {
         if (settings.isEnabled) {
             settings.appearance = DARK_APPEARANCE;
@@ -90,8 +89,6 @@ function _insertApperanceIfNeeded(settings) {
         }
         delete settings.isEnabled;
     }
-
-    return settings;
 }
 
 function _loadMethods(settings) {
@@ -112,4 +109,11 @@ function _loadMethods(settings) {
             return CHARCOAL_MODE;
         }
     }
+}
+
+function _defaultSettings() {
+    var settings = {};
+    settings.appearance = DARK_APPEARANCE;
+    settings.preferredTheme = CHARCOAL_MODE;
+    return settings;
 }
