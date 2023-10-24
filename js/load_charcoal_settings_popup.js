@@ -1,5 +1,5 @@
 var xhr= new XMLHttpRequest();
-xhr.open('GET', chrome.extension.getURL('charcoal_settings.html'), true);
+xhr.open("GET", "charcoal_settings.html", true);
 xhr.onreadystatechange= function() {
     if (this.readyState!==4) return;
     if (this.status!==200) return;
