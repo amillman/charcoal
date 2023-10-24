@@ -70,13 +70,13 @@ function themeClassName(theme) {
 
 function themeIconURL(theme) {
     if (theme == CHARCOAL_MODE) {
-        return chrome.extension.getURL("assets/charcoal-messenger.svg");
+        return ("assets/charcoal-messenger.svg");
     } else if (theme == MIDNIGHT_MODE) {
-        return chrome.extension.getURL("assets/midnight-messenger.svg");
+        return ("assets/midnight-messenger.svg");
     } else if (theme == DEEPBLUE_MODE) {
-        return chrome.extension.getURL("assets/deepblue-messenger.svg");
+        return ("assets/deepblue-messenger.svg");
     } else {
-        return chrome.extension.getURL("assets/facebook-messenger.svg");
+        return ("assets/facebook-messenger.svg");
     }
 }
 
