@@ -1,13 +1,13 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Charcoal: Dark Mode for Messenger",
   "short_name": "Charcoal",
   "description": "Unofficial Messenger dark mode. Easily swap between dark and light mode.",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "icons": {
     "128": "assets/icon@128.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "charcoal_settings_popup.html"
   },
   "content_scripts": [
@@ -19,11 +19,14 @@
   ],
   "permissions": ["storage"],
   "web_accessible_resources": [
-    "assets/charcoal-messenger.svg",
+    {
+	"resources": ["assets/charcoal-messenger.svg",
     "assets/facebook-messenger.svg",
     "assets/midnight-messenger.svg",
     "assets/deepblue-messenger.svg",
     "charcoal_settings.html",
-    "onboarding_dropdown.html"
+    "onboarding_dropdown.html"],
+      "matches":["*://*.messenger.com/*"]
+    }
   ]
 }
